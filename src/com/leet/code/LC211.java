@@ -2,11 +2,16 @@ package com.leet.code;
 
 import java.util.HashMap;
 
+
+
+// HashMap的效率很高，即使数据量大的时候
+
 public class LC211 {
     // root用特殊字符
     TrieNode root = new TrieNode('/');
     // 通配符 单独建一个节点，每增加一个字母，通配的children都增加
-    TrieNode docNode = new TrieNode('.');
+    // ！！！ 不能这么设计，因为可能同一个字符，在树中会出现多次，children指向就不唯一了
+    // TrieNode docNode = new TrieNode('.');
     // 记录长度
     HashMap<Integer, Integer> hashMap = new HashMap<>();
 
@@ -21,12 +26,13 @@ public class LC211 {
     // trie树的insert
 
     public void addWord(String word) {
-        if (word.length() == 0){
-            return;
-        }
-        if (!hashMap.containsKey(word.length())){
-            hashMap.put(word.length(), 1);
-        }
+        // ！！！最后一个用例，数据量大，这个语句会导致超时
+        // if (word.length() == 0){
+        //     return;
+        // }
+        // if (!hashMap.containsKey(word.length())){
+        //     hashMap.put(word.length(), 1);
+        // }
 
         TrieNode p = root;
         char[] pattern = word.toCharArray();
@@ -36,52 +42,62 @@ public class LC211 {
             index = pattern[i] - 'a';
             if (p.children[index] == null){
                 p.children[index] = new TrieNode(pattern[i]);
-                docNode.children[index] = p.children[index];
             }
             p = p.children[index];
         }
         p.isEnd = true;
-        p.high = pattern.length;
     }
 
     /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
     public boolean search(String word) {
-        char[] pattern = word.toCharArray();
-        int docNum = 0;
-        int charNum = 0;
-        TrieNode p = root;
+        // ！！！把两部分去掉哈希，总的时间还增加了。 说明哈希效率很高
+        // if (!hashMap.containsKey(word.length())){
+        //     return false;
+        // }
 
-        if (!hashMap.containsKey(word.length())){
-            return false;
-        }
+        // ！！！挺耗时，增加会超时
+        // 全是通配符
+        // char[] pattern = word.toCharArray();
+        // for (int j = 0; j < word.length(); j++) {
+        //     if (pattern[j] != '.') {
+        //         break;
+        //     }
+        //     if (j == word.length() - 1){
+        //         return true;
+        //     }
+        // }
+        return find(word, root);
+    }
+
+    public boolean find(String word, TrieNode root){
+        char[] pattern = word.toCharArray();
+        TrieNode p = root;
 
         for (int i = 0; i < word.length(); i++) {
             if (pattern[i] == '.'){
-                p = docNode;
-                docNum ++;
+                // 用任何一个可能的字符代替'.'，继续匹配查找
+                for (int j = 0; j < p.children.length; j++) {
+                    if (p.children[j] != null){
+                        // if (find(p.children[j].data + word.substring(i+1, word.length()), p)){
+                        if (find(word.substring(i+1, word.length()), p.children[j])){
+                            return true;
+                        }
+                    }
+                }
+                return false;
             }else {
                 int index = pattern[i] - 'a';
                 if (p.children[index] == null){
                     return false;
                 }
                 p = p.children[index];
-                charNum ++;
-            }
-
-        }
-        if (p != docNode){
-            if (docNum + charNum != p.high || !p.isEnd){
-                return false;
             }
         }
-        // 通配符结尾，还需要判断是否有合适字母可以替换
-        else{
-
+        if (!p.isEnd){
+            return false;
         }
-
         return true;
     }
-
 
     public static void main(String[] args) {
         LC211 obj = new LC211();
@@ -93,7 +109,7 @@ public class LC211 {
         }
 
         // String[] search = {"pad","bad",".ad","b.."};
-        String[] search = {"b.","a.","ab",".a",".b","ab.",".",".."};
+        String[] search = {"a.","ab",".a",".b","ab.",".",".."};
         for (String word : search){
             System.out.println(obj.search(word));
         }
