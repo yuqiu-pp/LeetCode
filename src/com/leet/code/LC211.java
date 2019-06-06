@@ -4,7 +4,10 @@ import java.util.HashMap;
 
 
 
-// HashMap的效率很高，即使数据量大的时候
+// 1.HashMap的效率很高，即使数据量大的时候；
+// 2.循环判断字符串全是通配符效率不可取，大量数据时耗时太多；
+// 3.addWord中判断单词长度为0的语句，在大量数据时耗时较多；
+// 4.isEnd要用好；
 
 public class LC211 {
     // root用特殊字符
@@ -15,7 +18,6 @@ public class LC211 {
     // 记录长度
     HashMap<Integer, Integer> hashMap = new HashMap<>();
 
-
     /** Initialize your data structure here. */
     // WordDictionary
     public LC211() {
@@ -24,7 +26,6 @@ public class LC211 {
 
     /** Adds a word into the data structure. */
     // trie树的insert
-
     public void addWord(String word) {
         // ！！！最后一个用例，数据量大，这个语句会导致超时
         // if (word.length() == 0){
@@ -69,6 +70,7 @@ public class LC211 {
         return find(word, root);
     }
 
+    // 时间复杂度:单词O(n*w)，当单词有通配符时O(26*w)
     public boolean find(String word, TrieNode root){
         char[] pattern = word.toCharArray();
         TrieNode p = root;
@@ -79,6 +81,7 @@ public class LC211 {
                 for (int j = 0; j < p.children.length; j++) {
                     if (p.children[j] != null){
                         // if (find(p.children[j].data + word.substring(i+1, word.length()), p)){
+                        // 减少一次递归
                         if (find(word.substring(i+1, word.length()), p.children[j])){
                             return true;
                         }
