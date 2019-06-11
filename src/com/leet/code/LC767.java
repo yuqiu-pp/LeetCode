@@ -29,7 +29,10 @@ public class LC767 {
         }
     }
 
-
+    /**
+     *  执行用时 : 108 ms, 在Implement Magic Dictionary的Java提交中击败了21.62% 的用户
+        内存消耗 : 34.8 MB, 在Implement Magic Dictionary的Java提交中击败了94.12% 的用户
+     */
     /** Returns if there is any word in the trie that equals to the given word after modifying exactly one character */
     public boolean search(String word) {
         char[] pattern = word.toCharArray();
