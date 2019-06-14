@@ -14,6 +14,7 @@ public class LC24 {
         ListNode j = head.next;
         ListNode k = head.next.next;
 
+        // i指向交换结点的前序结点，j和k是交换结点
         while(true){
             i.next = k;
             j.next = k.next;
