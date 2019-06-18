@@ -3,17 +3,17 @@ package com.leet.code;
 public class LC50 {
 
     // 实现 pow(x, n) ，即计算 x 的 n 次幂函数
+
     // 将n二等分递归的去计算，如果为奇数，多乘一次x
-
-    // 不能采用：先算正数n的值后，再1/rst的方式
-    // 当n超级大时，rst已经变成0了。应该是因为溢出
-    // 所以用最基本的算法计算: n>0就是 1/x的连乘
-
     public double myPow(double x, int n) {
         if (n == 0){
             return 1;
         }
-        
+
+        // 不能采用：先算正数n的值后，再1/rst的方式
+        // 当n超级大时，rst已经变成0了。应该是因为溢出
+        // 所以用最基本的算法计算: n>0就是 1/x的连乘
+
         // double rst = pow(x, Math.abs(n));
         // if (n < 0){
         //     rst = 1 / rst;
