@@ -76,7 +76,7 @@ public class LC33 {
 
     public static void main(String[] args) {
         LC33 solution = new LC33();
-        int[] nums = {1,3};
+        int[] nums = {2,5,6,0,1,2,3};
         int target = 3;
         System.out.println(solution.search(nums, target));
     }
