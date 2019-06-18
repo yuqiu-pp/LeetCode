@@ -18,36 +18,40 @@ public class LC33 {
         int right = nums.length - 1;
         int mid = 0;
 
-        while (left < right){
+        while (left <= right){
             mid = left + (right - left) / 2;
             if (nums[mid] > nums[right]){
                 left = mid + 1;
             }else {
+                // 不能减1，和二分有区别
                 right = mid;
+            }
+            if (left == right){
+                mid = left;
+                break;
             }
         }
 
         // 2
         if (target == nums[mid]){
             return mid;
-        }else if (target < nums[mid]){
-            left = mid;
-            right = nums.length - 1;
-        }else {
+        }else if (target > nums[nums.length - 1]){
             left = 0;
             right = (mid == 0) ? nums.length - 1 : mid ;
+        }else {
+            left = mid;
+            right = nums.length - 1;
         }
-        // 由于left加了1，所以这里要包括=号
-        while (left < right){
+        // 二分的过程
+        while (left <= right){
             mid = left + (right - left) / 2;
             if (nums[mid] == target){
                 return mid;
             }
             if (target > nums[mid]){
-                // left+1 避免死循环
                 left = mid + 1;
             }else {
-                right = mid;
+                right = mid - 1;
             }
         }
 
@@ -76,8 +80,10 @@ public class LC33 {
 
     public static void main(String[] args) {
         LC33 solution = new LC33();
+
         int[] nums = {2,5,6,0,1,2,3};
         int target = 3;
+
         System.out.println(solution.search(nums, target));
     }
 }
