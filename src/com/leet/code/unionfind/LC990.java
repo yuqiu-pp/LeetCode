@@ -1,4 +1,4 @@
-package com.leet.code;
+package com.leet.code.unionfind;
 
 import java.util.HashMap;
 
@@ -23,6 +23,8 @@ public class LC990 {
 
         for (String str : equations){
             char[] equa = str.toCharArray();
+            // 每个字符等于自己
+            init (str, hashMap);
 
             if (equa[0] == equa[3]){
                 if (equa[1] == '!'){
@@ -31,8 +33,6 @@ public class LC990 {
                     continue;
                 }
             }
-            // 每个字符等于自己
-            init (str, hashMap);
 
             if (equa[1] == '='){
                 union(equa[0], equa[3], hashMap);
@@ -45,8 +45,6 @@ public class LC990 {
         // 检查不等式
         for (int i = 0; i < noEqualNum; i++) {
             char[] ch = noEqual[i].toCharArray();
-            char m = find(ch[0], hashMap);
-            char n = find(ch[3], hashMap);
             if (find(ch[0], hashMap) == find(ch[3], hashMap)){
                 return false;
             }
@@ -73,8 +71,6 @@ public class LC990 {
     // hash表建立关联
     public void union(char p, char q, HashMap<Character, Character> hashMap){
         // p,q关系如果可以查到，说明已经存在，不需要再处理
-        char m = find(p, hashMap);
-        char n = find(q, hashMap);
         if (find(p, hashMap) == find(q, hashMap)){
             return;
         }

@@ -1,7 +1,5 @@
-package com.leet.code;
+package com.leet.code.trietree;
 
-
-import sun.security.util.Length;
 
 import java.util.*;
 

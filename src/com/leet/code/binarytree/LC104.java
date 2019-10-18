@@ -1,4 +1,5 @@
-package com.leet.code;
+package com.leet.code.binarytree;
+
 
 public class LC104 {
 

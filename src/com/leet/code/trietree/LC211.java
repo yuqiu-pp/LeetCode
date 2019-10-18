@@ -1,4 +1,4 @@
-package com.leet.code;
+package com.leet.code.trietree;
 
 import java.util.HashMap;
 

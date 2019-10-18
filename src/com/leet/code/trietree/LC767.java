@@ -1,4 +1,6 @@
-package com.leet.code;
+package com.leet.code.trietree;
+
+import com.leet.code.trietree.TrieNode;
 
 public class LC767 {
 

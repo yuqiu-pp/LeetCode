@@ -1,4 +1,4 @@
-package com.leet.code;
+package com.leet.code.list;
 
 public class LC24 {
     public ListNode swapPairs(ListNode head) {

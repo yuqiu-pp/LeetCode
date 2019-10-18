@@ -1,4 +1,6 @@
-package com.leet.code;
+package com.leet.code.list;
+
+import com.leet.code.list.ListNode;
 
 import java.util.HashMap;
 
