@@ -1,6 +1,8 @@
 package com.leet.code.array;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LC26 {
 
@@ -118,4 +120,90 @@ public class LC26 {
         return len;
     }
 
+    public static class LC914 {
+        public static void main(String[] args) {
+            int[] nums = {1,1,1,1,1,0,0,0};
+            LC914 solution = new LC914();
+
+            System.out.println(solution.hasGroupsSizeX(nums));
+        }
+        // 简单的整数，可以用数组做hash表。速度会比hashmap快
+        // 求最大公约数的方法：欧几里得法
+        private boolean hasGroupsSizeX(int[] deck) {
+
+            int[] map = new int[1000];
+            for (int i : deck) {
+                map[i] += 1;
+            }
+            int g = -1;
+            for (int n : map) {
+                if (g == -1){
+                    g = n;
+                }else {
+                    g = gcd(g, n);
+                }
+                if (g == 1){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
+        private boolean hasGroupsSizeX0(int[] deck) {
+            // map<num, count>  统计次数
+            Map<Integer, Integer> map = new HashMap<>(deck.length);
+            for (Integer i : deck) {
+                if (map.containsKey(i)){
+                    map.put(i, map.get(i)+1);
+                }else{
+                    map.put(i, 1);
+                }
+            }
+
+            // for (Map.Entry<Integer, Integer> m : map.entrySet()){
+            // map.forEach((k,v) -> {  ？？？
+            //     if (v !+ num)
+            // });
+            // 遍历map，检查每个key的value是否相等
+            int g = map.get(deck[0]);;
+            for (Integer n : map.values()){
+                g = gcd(g, n);
+                if (g == 1){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        //  求最大公约数
+        private int gcd(int a, int b) {
+            if (b == 0) {
+                return a;
+            }
+            return gcd(b, a % b);
+        }
+
+
+        private boolean hasGroupsSizeX1(int[] deck) {
+            if (deck.length < 2){
+                return false;
+            }
+            // 排序
+            Arrays.sort(deck);
+            // 记录相同数的个数
+            int count = 0;
+            for (int i = 1; i < deck.length; i++) {
+                if (deck[i-1] == deck[i]){
+                    count ++;
+                }else {
+                    break;
+                }
+            }
+
+
+
+            return true;
+        }
+    }
 }

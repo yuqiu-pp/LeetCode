@@ -1,4 +1,4 @@
-package com.leet.code.list;
+package com.leet.code.link;
 
 public class ListNode {
     int val;

@@ -1,4 +1,4 @@
-package com.leet.code.list;
+package com.leet.code.link;
 
 import java.util.HashMap;
 import java.util.HashSet;
