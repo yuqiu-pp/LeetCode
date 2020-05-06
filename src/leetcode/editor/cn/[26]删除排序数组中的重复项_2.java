@@ -59,9 +59,24 @@ class LC26{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // 双指针：i向后遍历，j指向第一个不重复的元素，替换时j先++，再替换
+        // i         i
+        // 0    0    1     1     1
+        // j  ++j    换
+        public int removeDuplicates(int[] nums) {
+            int j = 0;
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] != nums[j]) {
+                    nums[++j] = nums[i];
+                }
+            }
+            return j+1;
+        }
+
+
         // 利用高级数据结构：HashMap、Set
         // 前面学到的双指针 慢的指向被替换元素；另一种思路是 慢指针指向被比较元素，先j++，再替换
-        public int removeDuplicates(int[] nums) {
+        public int removeDuplicates01(int[] nums) {
             int len = nums.length;
             if (len < 2) {
                 return len;

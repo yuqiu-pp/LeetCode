@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="035148f4-05ce-4ffd-91d4-cd25d5997a60" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/leetcode/editor.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/leet/code/array/LC892_3.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/leet/code/array/LC914_4.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/leet/code/trietree/LC820.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/leet/code/trietree/LC820En.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/leet/code/trietree/TrieNodeEn.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/BinTree.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/TreeNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/leet/code/list/LC142.java" afterPath="$PROJECT_DIR$/src/com/leet/code/link/LC142.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/leet/code/list/LC24.java" afterPath="$PROJECT_DIR$/src/com/leet/code/link/LC24.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/leet/code/list/LC83.java" afterPath="$PROJECT_DIR$/src/com/leet/code/link/LC83.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/leet/code/list/ListNode.java" afterPath="$PROJECT_DIR$/src/com/leet/code/link/ListNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/[11]盛最多水的容器.java" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/[11]盛最多水的容器_2.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/[1]两数之和.java" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/[1]两数之和_2.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/[26]删除排序数组中的重复项.java" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/[26]删除排序数组中的重复项_2.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/[49]字母异位词分组.java" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/[49]字母异位词分组_2.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_3.java" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_4.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/leetcode/editor.xml" afterPath="$PROJECT_DIR$/.idea/leetcode/editor.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/leet/code/array/LC26.java" afterPath="$PROJECT_DIR$/src/com/leet/code/array/LC26.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/leet/code/trietree/TrieNode.java" afterPath="$PROJECT_DIR$/src/com/leet/code/trietree/TrieNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/algorithm/leetcode/editor/cn/all.json" afterPath="$PROJECT_DIR$/out/production/algorithm/leetcode/editor/cn/all.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/all.json" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/all.json" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,23 +33,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="[429]N叉树的层序遍历.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[429]N叉树的层序遍历.java">
+      <file leaf-file-name="[102]二叉树的层序遍历.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[102]二叉树的层序遍历.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="65" column="23" lean-forward="false" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+            <state relative-caret-position="-145">
+              <caret line="58" column="35" lean-forward="true" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="[98]验证二叉搜索树_2.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[98]验证二叉搜索树_2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1014">
+              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1220#1221#0" expanded="true" />
+                <element signature="e#1272#1273#0" expanded="true" />
+                <element signature="e#3055#3056#0" expanded="true" />
+                <element signature="e#3110#3111#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="[347]前 K 个高频元素.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[347]前 K 个高频元素.java">
+      <file leaf-file-name="[94]二叉树的中序遍历.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[94]二叉树的中序遍历.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="55" column="47" lean-forward="false" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="47" />
+            <state relative-caret-position="-238">
+              <caret line="35" column="69" lean-forward="false" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="[433]最小基因变化.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[433]最小基因变化.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="63" column="21" lean-forward="false" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -92,28 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/leet/code/trietree/LC820.java" />
-        <option value="$PROJECT_DIR$/src/com/leet/code/array/LC892.java" />
-        <option value="$PROJECT_DIR$/src/com/leet/code/leetcode/editor/cn/[50]Pow(x, n).java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[51]N皇后.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n).java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[62]不同路径.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[面试题62]圆圈中最后剩下的数字.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[view62].java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[912]排序数组.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[1111]有效括号的嵌套深度.java" />
-        <option value="$PROJECT_DIR$/src/com/leet/code/array/LC892_2.java" />
-        <option value="$PROJECT_DIR$/src/com/leet/code/array/LC892_3.java" />
-        <option value="$PROJECT_DIR$/src/com/leet/code/array/LC914_3.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_3.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[460]LFU缓存.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[460]LFU缓存_2.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[460]LFU缓存_3.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[283]移动零.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[289]生命游戏.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[11]盛最多水的容器.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[289]生命游戏_2.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[283]移动零_2.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[141]环形链表.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[70]爬楼梯.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[66]加一.java" />
@@ -126,15 +122,12 @@
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[189]旋转数组.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[1221]分割平衡字符串.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[15]三数之和.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[26]删除排序数组中的重复项.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[42]接雨水.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[917]仅仅反转字母.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[242]有效的字母异位词.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[977]有序数组的平方.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[977]有序数组的平方_2.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[1021]删除最外层的括号.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[1]两数之和.java" />
-        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[49]字母异位词分组.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/TreeNode.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/BinTree.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[144]二叉树的前序遍历.java" />
@@ -143,6 +136,31 @@
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[429]N叉树的层序遍历.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[264]丑数 II.java" />
         <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[347]前 K 个高频元素.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[105]从前序与中序遍历序列构造二叉树.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[236]二叉树的最近公共祖先.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[111]二叉树的最小深度.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[22]括号生成.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[1]两数之和.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[11]盛最多水的容器.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[26]删除排序数组中的重复项.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[49]字母异位词分组.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_3.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[117]填充每个节点的下一个右侧节点指针 II.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[17]电话号码的字母组合.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[51]N皇后.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[77]组合.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[46]全排列.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[47]全排列 II.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[169]多数元素.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[78]子集.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[105]从前序与中序遍历序列构造二叉树_2.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[455]分发饼干.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[122]买卖股票的最佳时机 II.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[55]跳跃游戏.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[433]最小基因变化.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[102]二叉树的层序遍历.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[98]验证二叉搜索树.java" />
+        <option value="$PROJECT_DIR$/src/leetcode/editor/cn/[98]验证二叉搜索树_2.java" />
       </list>
     </option>
   </component>
@@ -153,9 +171,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="423" />
+    <option name="x" value="437" />
     <option name="y" value="23" />
-    <option name="width" value="1017" />
+    <option name="width" value="1188" />
     <option name="height" value="832" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -176,8 +194,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -196,11 +215,45 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="cn" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="[17]电话号码的字母组合.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="[50]Pow(x, n)_4.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="[51]N皇后.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="[94]二叉树的中序遍历.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="[236]二叉树的最近公共祖先_2.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -208,7 +261,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="leetcode.id" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -225,15 +278,15 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LC347">
-    <configuration name="LC264" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.LC98">
+    <configuration name="LC102" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="leetcode.editor.cn.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.LC264" />
+      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.LC102" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -245,14 +298,14 @@
       <module name="algorithm" />
       <envs />
     </configuration>
-    <configuration name="LC347" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="LC122" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="leetcode.editor.cn.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.LC347" />
+      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.LC122" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -264,14 +317,14 @@
       <module name="algorithm" />
       <envs />
     </configuration>
-    <configuration name="LC429" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="LC455" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="leetcode.editor.cn.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.LC429" />
+      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.LC455" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -283,14 +336,14 @@
       <module name="algorithm" />
       <envs />
     </configuration>
-    <configuration name="LC49" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="LC55" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="leetcode.editor.cn.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.LC49" />
+      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.LC55" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -302,14 +355,14 @@
       <module name="algorithm" />
       <envs />
     </configuration>
-    <configuration name="LC94" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="LC98" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="leetcode.editor.cn.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.LC94" />
+      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.LC98" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -337,19 +390,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.LC49" />
-      <item index="1" class="java.lang.String" itemvalue="Application.LC94" />
-      <item index="2" class="java.lang.String" itemvalue="Application.LC429" />
-      <item index="3" class="java.lang.String" itemvalue="Application.LC264" />
-      <item index="4" class="java.lang.String" itemvalue="Application.LC347" />
+      <item index="0" class="java.lang.String" itemvalue="Application.LC455" />
+      <item index="1" class="java.lang.String" itemvalue="Application.LC122" />
+      <item index="2" class="java.lang.String" itemvalue="Application.LC55" />
+      <item index="3" class="java.lang.String" itemvalue="Application.LC102" />
+      <item index="4" class="java.lang.String" itemvalue="Application.LC98" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.LC347" />
-        <item index="1" class="java.lang.String" itemvalue="Application.LC264" />
-        <item index="2" class="java.lang.String" itemvalue="Application.LC429" />
-        <item index="3" class="java.lang.String" itemvalue="Application.LC94" />
-        <item index="4" class="java.lang.String" itemvalue="Application.LC49" />
+        <item index="0" class="java.lang.String" itemvalue="Application.LC98" />
+        <item index="1" class="java.lang.String" itemvalue="Application.LC102" />
+        <item index="2" class="java.lang.String" itemvalue="Application.LC55" />
+        <item index="3" class="java.lang.String" itemvalue="Application.LC122" />
+        <item index="4" class="java.lang.String" itemvalue="Application.LC455" />
       </list>
     </recent_temporary>
   </component>
@@ -435,30 +488,39 @@
       <workItem from="1587787097096" duration="7615000" />
       <workItem from="1587825990386" duration="2769000" />
       <workItem from="1587863014388" duration="2829000" />
+      <workItem from="1587970101230" duration="6741000" />
+      <workItem from="1587998535866" duration="7035000" />
+      <workItem from="1588039664262" duration="4821000" />
+      <workItem from="1588057431417" duration="817000" />
+      <workItem from="1588069515340" duration="19512000" />
+      <workItem from="1588148167715" duration="2956000" />
+      <workItem from="1588167149971" duration="16817000" />
+      <workItem from="1588258095310" duration="74168000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="689099000" />
+    <option name="totallyTimeSpent" value="821966000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="423" y="23" width="1017" height="832" extended-state="0" />
+    <frame x="437" y="23" width="1188" height="832" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31661892" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2625538" sideWeight="0.5081967" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2234957" sideWeight="0.5117647" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25931233" sideWeight="0.4918033" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.247851" sideWeight="0.4882353" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="leetcode" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24205129" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="leetcode" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23957323" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2923077" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21640489" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4025788" sideWeight="0.4972145" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36389685" sideWeight="0.4972145" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -726,26 +788,26 @@
           <option name="timeStamp" value="177" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_3.java</url>
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_4.java</url>
           <line>1</line>
           <properties />
           <option name="timeStamp" value="181" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_3.java</url>
-          <line>136</line>
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_4.java</url>
+          <line>153</line>
           <properties />
           <option name="timeStamp" value="183" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_3.java</url>
-          <line>167</line>
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_4.java</url>
+          <line>184</line>
           <properties />
           <option name="timeStamp" value="186" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_3.java</url>
-          <line>84</line>
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_4.java</url>
+          <line>101</line>
           <properties />
           <option name="timeStamp" value="189" />
         </line-breakpoint>
@@ -869,8 +931,8 @@
           <option name="timeStamp" value="250" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[49]字母异位词分组.java</url>
-          <line>46</line>
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[49]字母异位词分组_2.java</url>
+          <line>63</line>
           <properties />
           <option name="timeStamp" value="254" />
         </line-breakpoint>
@@ -886,119 +948,102 @@
           <properties />
           <option name="timeStamp" value="260" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[98]验证二叉搜索树_2.java</url>
+          <line>92</line>
+          <properties />
+          <option name="timeStamp" value="262" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[105]从前序与中序遍历序列构造二叉树_2.java</url>
+          <line>75</line>
+          <properties />
+          <option name="timeStamp" value="266" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[105]从前序与中序遍历序列构造二叉树_2.java</url>
+          <line>64</line>
+          <properties />
+          <option name="timeStamp" value="267" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[105]从前序与中序遍历序列构造二叉树_2.java</url>
+          <line>73</line>
+          <properties />
+          <option name="timeStamp" value="268" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[77]组合.java</url>
+          <line>48</line>
+          <properties />
+          <option name="timeStamp" value="269" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[77]组合.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="270" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[78]子集.java</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="272" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[78]子集.java</url>
+          <line>78</line>
+          <properties />
+          <option name="timeStamp" value="273" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[51]N皇后.java</url>
+          <line>69</line>
+          <properties />
+          <option name="timeStamp" value="279" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[51]N皇后.java</url>
+          <line>97</line>
+          <properties />
+          <option name="timeStamp" value="280" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[47]全排列 II.java</url>
+          <line>44</line>
+          <properties />
+          <option name="timeStamp" value="284" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[55]跳跃游戏.java</url>
+          <line>54</line>
+          <properties />
+          <option name="timeStamp" value="289" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[55]跳跃游戏.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="290" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[98]验证二叉搜索树_2.java</url>
+          <line>65</line>
+          <properties />
+          <option name="timeStamp" value="291" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/[98]验证二叉搜索树_2.java</url>
+          <line>119</line>
+          <properties />
+          <option name="timeStamp" value="292" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="261" />
+      <option name="time" value="293" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/util/Arrays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="3798" column="30" lean-forward="false" selection-start-line="3798" selection-start-column="30" selection-end-line="3798" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/leet/code/trietree/LC720.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="44" column="22" lean-forward="false" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/leet/code/trietree/TrieNodeEn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/leet/code/trietree/TrieNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-218">
-          <caret line="567" column="15" lean-forward="false" selection-start-line="567" selection-start-column="15" selection-end-line="567" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/leet/code/array/LC771.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="9" column="42" lean-forward="false" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/leet/code/trietree/LC820En.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/leet/code/trietree/LC820.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///var/folders/1z/_yvp73016_q3dqkq3r865gm40000gn/T/leetcode/editor/cn/[50]Pow(x, n).md" />
-    <entry file="file:///var/folders/1z/_yvp73016_q3dqkq3r865gm40000gn/T/leetcode/editor/cn/[50]Pow(x, n).java" />
-    <entry file="file://$PROJECT_DIR$/src/com/leet/code/leetcode/editor/cn/[50]Pow(x, n).java" />
-    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[51]N皇后.md" />
-    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n).md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SECOND">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[51]N皇后.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/math/BigDecimal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="2300" column="28" lean-forward="false" selection-start-line="2300" selection-start-column="28" selection-end-line="2300" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[62]不同路径.java" />
-    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[view62]_2.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/leet/code/array/LC892_3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-705">
-          <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/leet/code/array/LC914_4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="805">
-          <caret line="35" column="23" lean-forward="false" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[1111]有效括号的嵌套深度.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="644">
@@ -1108,20 +1153,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[26]删除排序数组中的重复项.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="62" column="56" lean-forward="false" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[11]盛最多水的容器.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-41">
-          <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[42]接雨水_2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="659">
@@ -1152,13 +1183,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="1966" column="0" lean-forward="false" selection-start-line="1966" selection-start-column="0" selection-end-line="1966" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[242]有效的字母异位词.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
@@ -1182,44 +1206,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="70" column="41" lean-forward="false" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#removeOuterParentheses02#0;class#Solution#0;class#LC1021#0" expanded="false" />
-            <element signature="method#removeOuterParentheses01#0;class#Solution#0;class#LC1021#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[1]两数之和.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#1341#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[49]字母异位词分组.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="49" column="34" lean-forward="false" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#1767#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/TreeNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="e#127#128#0" expanded="true" />
-            <element signature="e#155#156#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1227,19 +1213,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
           <caret line="43" column="34" lean-forward="false" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[94]二叉树的中序遍历.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="55" column="37" lean-forward="true" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1247,7 +1220,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1255,11 +1227,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="79">
           <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1101#1102#0" expanded="false" />
-            <element signature="e#1127#1128#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1277,16 +1244,275 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
           <caret line="65" column="23" lean-forward="false" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/TreeNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[347]前 K 个高频元素.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/util/Arrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="3590" column="0" lean-forward="false" selection-start-line="3590" selection-start-column="0" selection-end-line="3590" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[111]二叉树的最小深度_2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="39" column="40" lean-forward="false" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+          <folding>
+            <element signature="method#minDepth01#0;class#Solution#0;class#LC111#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[22]括号生成_2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#generateParenthesis01#0;class#Solution#0;class#LC22#0" expanded="false" />
+            <element signature="method#_generate#0;class#LC22#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[1]两数之和_2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="39" column="36" lean-forward="true" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+          <folding>
+            <element signature="method#twoSum01#0;class#Solution#0;class#LC1#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[11]盛最多水的容器_2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="42" column="27" lean-forward="false" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[26]删除排序数组中的重复项_2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="64" column="22" lean-forward="true" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#2152#0" expanded="false" />
+            <element signature="method#removeDuplicates01#0;class#Solution#0;class#LC26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[49]字母异位词分组_2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="54" column="49" lean-forward="false" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#2540#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[117]填充每个节点的下一个右侧节点指针 II.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="1966" column="0" lean-forward="false" selection-start-line="1966" selection-start-column="0" selection-end-line="1966" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[17]电话号码的字母组合.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="53" column="29" lean-forward="false" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[47]全排列 II.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[347]前 K 个高频元素.java">
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[46]全排列.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="55" column="47" lean-forward="false" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="47" />
+        <state relative-caret-position="575">
+          <caret line="39" column="12" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="75" column="46" lean-forward="false" selection-start-line="75" selection-start-column="46" selection-end-line="75" selection-end-column="46" />
+          <folding>
+            <element signature="method#myPow40#0;class#Solution#0;class#LC50#0" expanded="false" />
+            <element signature="method#pow40#0;class#Solution#0;class#LC50#0" expanded="false" />
+            <element signature="method#myPow00#0;class#Solution#0;class#LC50#0" expanded="false" />
+            <element signature="method#myPow2#0;class#Solution#0;class#LC50#0" expanded="false" />
+            <element signature="method#pow2#0;class#Solution#0;class#LC50#0" expanded="false" />
+            <element signature="method#myPow3#0;class#Solution#0;class#LC50#0" expanded="false" />
+            <element signature="method#myPow1#0;class#Solution#0;class#LC50#0" expanded="false" />
+            <element signature="method#pow1#0;class#Solution#0;class#LC50#0" expanded="false" />
+            <element signature="method#pow11#0;class#Solution#0;class#LC50#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[77]组合.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="39" column="41" lean-forward="true" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[105]从前序与中序遍历序列构造二叉树_2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="38" column="34" lean-forward="false" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[51]N皇后.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="116" column="37" lean-forward="false" selection-start-line="116" selection-start-column="37" selection-end-line="116" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[78]子集.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="44" column="54" lean-forward="false" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[169]多数元素.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="87" column="52" lean-forward="false" selection-start-line="87" selection-start-column="52" selection-end-line="87" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#890#891#0" expanded="true" />
+            <element signature="e#962#963#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[236]二叉树的最近公共祖先_2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="62" column="47" lean-forward="true" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
+          <folding>
+            <element signature="method#lowestCommonAncestor01#0;class#Solution#0;class#LC236#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[455]分发饼干.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[122]买卖股票的最佳时机 II.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="83" column="23" lean-forward="true" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[55]跳跃游戏.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding>
+            <element signature="e#1192#1193#0" expanded="true" />
+            <element signature="e#1248#1249#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[433]最小基因变化.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="63" column="21" lean-forward="false" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[102]二叉树的层序遍历.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-145">
+          <caret line="58" column="35" lean-forward="true" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[98]验证二叉搜索树_2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1014">
+          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1220#1221#0" expanded="true" />
+            <element signature="e#1272#1273#0" expanded="true" />
+            <element signature="e#3055#3056#0" expanded="true" />
+            <element signature="e#3110#3111#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leetcode/editor/cn/[94]二叉树的中序遍历.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-238">
+          <caret line="35" column="69" lean-forward="false" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="69" />
           <folding />
         </state>
       </provider>

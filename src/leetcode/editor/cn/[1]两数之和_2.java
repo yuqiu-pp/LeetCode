@@ -33,6 +33,16 @@ class LC1{
         // a+b=tafget  转化为  a=target-b
         public int[] twoSum(int[] nums, int target) {
             HashMap<Integer, Integer> map = new HashMap<>();
+            for (int i = 0; i < nums.length; i++) {
+                if (map.containsKey(target - nums[i])) {
+                    return new int[]{i,map.get(target - nums[i])};
+                }
+                map.put(nums[i], i);
+            }
+            return null;
+        }
+        public int[] twoSum01(int[] nums, int target) {
+            HashMap<Integer, Integer> map = new HashMap<>();
             // 建map时，先检查是否存在，遍历一遍hash表就可以，同时也可以省去判断i是否是自己
             for (int i = 0; i < nums.length; i++) {
                 int n = target - nums[i];

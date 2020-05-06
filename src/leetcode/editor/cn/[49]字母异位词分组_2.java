@@ -20,10 +20,7 @@
 
 package leetcode.editor.cn;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 class LC49{
     public static void main(String[] args) {
@@ -38,8 +35,28 @@ class LC49{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        // HashMap<key,List<>>  key 字符排序后的string
+        // 判断异位词：string -> char[] , 排序后比较
+        // 相同的分类：HashMap记录，key：排序后string值， value：List<string>
         public List<List<String>> groupAnagrams(String[] strs) {
+            HashMap<String, List<String>> map = new HashMap<>();
+            for (String s : strs) {
+                char[] chars = s.toCharArray();
+                Arrays.sort(chars);
+                String key = Arrays.toString(chars);
+                List<String> list = map.getOrDefault(key, new LinkedList<>());
+                list.add(s);
+                map.put(key, list);
+            }
+            // List<List<String>> res = new ArrayList<>();
+            // for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+            //     res.add(entry.getValue());
+            // }
+            // return res;
+            return new ArrayList<>(map.values());
+        }
+
+        // HashMap<key,List<>>  key 字符排序后的string
+        public List<List<String>> groupAnagrams01(String[] strs) {
             HashMap<String, List<String>> res = new HashMap<>();
             for (int i = 0; i < strs.length; i++) {
                 char[] chs = strs[i].toCharArray();

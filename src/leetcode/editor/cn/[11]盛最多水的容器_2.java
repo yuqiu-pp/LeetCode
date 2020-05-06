@@ -32,6 +32,20 @@ class LC11{
         // max(遍历两个成员组成的长方形面积)
         // 双指针：指针移动的条件：谁短谁移动,因为这样才可能得到更大的面积
         public int maxArea(int[] height) {
+            int left = 0;
+            int right = height.length - 1;
+            int max = 0;
+            while (left < right) {
+                max = Math.max(max, Math.min(height[left], height[right]) * (right - left));
+                if (height[left] < height[right]) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+            return max;
+        }
+        public int maxArea01(int[] height) {
             int max = 0;
             int r = height.length - 1;
             int l = 0;

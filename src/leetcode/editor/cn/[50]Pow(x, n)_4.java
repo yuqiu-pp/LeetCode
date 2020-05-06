@@ -34,8 +34,8 @@ class LC50 {
     public static void main(String[] args) {
         Solution solution = new LC50().new Solution();
         double x = 2.0;
-        int n = -8;  // -2147483648
-        System.out.println(solution.myPow40(x, n));
+        int n = -2147483648;   // -2147483648
+        System.out.println(solution.myPow(x, n));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -49,6 +49,23 @@ class LC50 {
     // 3. -n的递归
     // // 递归到最底层，n==1时已经返回1/x, 然后d=1/x，所以n%2==0直接返回d*d即可
     class Solution {
+        // 拆分 n/2 的子问题
+        public double myPow(double x, int n) {
+            //  递归出口
+            if (n == 0) {
+                return 1;
+            }
+            // 拆分子问题
+            int m = n / 2;
+            if (n < 0) {
+                x = 1 / x;
+                m = -m;  // n = -n, -2147483648 会溢出
+            }
+            double res = myPow(x, m);
+            // 合并子问题
+            return n % 2 == 0 ? res * res : res * res * x;
+        }
+
         public double myPow4(double x, int n){
             if (n == 0){
                 return 1;
@@ -81,7 +98,7 @@ class LC50 {
         }
 
 
-        public double myPow(double x, int n) {
+        public double myPow00(double x, int n) {
             if (n == 0){
                 return 1;
             }
