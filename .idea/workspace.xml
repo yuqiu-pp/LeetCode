@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="035148f4-05ce-4ffd-91d4-cd25d5997a60" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/[11]盛最多水的容器.java" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/[11]盛最多水的容器_2.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/[1]两数之和.java" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/[1]两数之和_2.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/[26]删除排序数组中的重复项.java" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/[26]删除排序数组中的重复项_2.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/[49]字母异位词分组.java" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/[49]字母异位词分组_2.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_3.java" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/[50]Pow(x, n)_4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/leetcode/editor.xml" afterPath="$PROJECT_DIR$/.idea/leetcode/editor.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/algorithm/leetcode/editor/cn/all.json" afterPath="$PROJECT_DIR$/out/production/algorithm/leetcode/editor/cn/all.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/all.json" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/all.json" />
-    </list>
+    <list default="true" id="035148f4-05ce-4ffd-91d4-cd25d5997a60" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -495,12 +485,12 @@
       <workItem from="1588069515340" duration="19512000" />
       <workItem from="1588148167715" duration="2956000" />
       <workItem from="1588167149971" duration="16817000" />
-      <workItem from="1588258095310" duration="74168000" />
+      <workItem from="1588258095310" duration="74281000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="821966000" />
+    <option name="totallyTimeSpent" value="822079000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="437" y="23" width="1188" height="832" extended-state="0" />
@@ -511,7 +501,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2234957" sideWeight="0.5117647" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.247851" sideWeight="0.4882353" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.247851" sideWeight="0.4882353" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="leetcode" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23957323" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
