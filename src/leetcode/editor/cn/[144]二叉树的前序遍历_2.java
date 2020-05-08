@@ -34,6 +34,14 @@ class LC144{
             dfs(root, list);
             return list;
         }
+        private void helper(TreeNode root, List<Integer> list) {
+            if (root == null) {
+                return;
+            }
+            list.add(root.val);
+            helper(root.left, list);
+            helper(root.right, list);
+        }
 
         public void dfs(TreeNode root, List<Integer> list) {
             if (root == null) {

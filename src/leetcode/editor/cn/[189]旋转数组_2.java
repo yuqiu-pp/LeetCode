@@ -45,6 +45,39 @@ class LC189{
     class Solution {
         // 注意 K可能大于数组长度，要取模
         public void rotate(int[] nums, int k) {
+            // [1,2,3,4,5,6,7]  ->  [7,6,5,4,3,2,1]
+            revert(nums, 0, nums.length);
+            // [7,6,5,4,3,2,1] ->  [5,6,7,  4,3,2,1]
+            revert(nums, 0, k);
+            // [5,6,7,  4,3,2,1] -> [5,6,7, 1,2,3,4]
+            revert(nums, k, nums.length - k);
+        }
+        private void revert(int[] nums, int start, int len) {
+            int tmp = 0;
+            for (int i = 0; i < len / 2; i++) {
+                tmp = nums[start + i];
+                nums[start + i] = nums[start + len - i - 1];
+                nums[start + len - i - 1] = tmp;
+            }
+        }
+
+        // O(k * n)
+        public void rotate03(int[] nums, int k) {
+            int n = nums.length;
+            k = k % n;
+            int tmp = 0;
+            int tail = 0;
+            for (int i = 0; i < k; i++) {
+                tail = nums[n - 1];
+                // System.arraycopy(nums, 0, nums, 1, n - 1);
+                for (int j = n - 1; j > 0; j--) {
+                    nums[j] = nums[j - 1];
+                }
+                nums[0] = tail;
+            }
+        }
+
+        public void rotate02(int[] nums, int k) {
             int len = nums.length;
             int[] a = new int[len];
             for (int i = 0; i < len; i++) {

@@ -53,7 +53,9 @@ class LC141{
     //  * Definition for singly-linked list.
     // */
     public class Solution {
-        // 快慢指针，类似于两个人操场跑圈
+        // 1.快慢指针，类似于两个人操场跑圈
+        // 2.hashmap保存已访问过的点，如果发现重复，说明有环
+
         public boolean hasCycle(ListNode head) {
             ListNode fast = head;
             ListNode slow = head;
