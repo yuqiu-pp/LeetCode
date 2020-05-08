@@ -48,7 +48,6 @@
 
 package leetcode.editor.cn;
 
-import com.sun.codemodel.internal.JForEach;
 
 import java.util.Stack;
 
@@ -56,16 +55,55 @@ class LC1021{
     public static void main(String[] args) {
         Solution solution = new LC1021().new Solution();
         // TO TEST
-        System.out.println(solution.removeOuterParentheses("(()())(())(()(()))"));
+        System.out.println(solution.removeOuterParentheses01("(()())(())(()(()))"));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        public String removeOuterParentheses(String S) {
+            Stack<Character> stack = new Stack<>();
+            StringBuilder res = new StringBuilder();
+            // 左括号压栈
+            // 右括号出栈，出栈时如果栈空，substring加入结果String中，这种方式不是最优
+
+            int count = 0;
+            for (int i = 0; i < S.length(); i++) {
+                char ch = S.charAt(i);
+                // 左括号压栈，除了栈空后的第一个左括号外，其余都可以直接入结果String中
+                // 优化1：其实这里的 栈只是用来记录左右的匹配关系，所以可以用一个变量代替
+                // 优化2：两个if合并
+                // if (ch == '(') {
+                    // stack.push(ch);  优化1
+                    // count ++;
+                    // if (stack.size() > 1) {
+                    // if (count > 1) {
+                    //     res.append(ch);
+                    // }
+                // }
+                if (ch == '(' && ++count > 1) {
+                    res.append(ch);
+                }
+                // 右括号出栈，除了栈空前的最后一个右括号外，其余都可以直接入结果String中
+                // else {
+                    // if (stack.size() > 1) {
+                    // if (count > 1) {
+                    //     res.append(ch);
+                    // }
+                    // stack.pop();
+                    // count --;
+                // }
+                if (ch == ')' && count-- > 1) {
+                    res.append(ch);
+                }
+            }
+            return res.toString();
+        }
+
         // 栈空 ：代表一个原语
         // 去外层括号 ：利用栈空时，一定是最外层括号，把位置记录，然后再删除
         // 优化：用计数+-后=0 相当于栈空  与1112题类似
         // 优化：按字母插入新string
-        public String removeOuterParentheses(String S) {
+        public String removeOuterParentheses03(String S) {
             StringBuilder s = new StringBuilder();
             int opened = 0; // 相当于记录栈的深度
             for (char c : S.toCharArray()) {

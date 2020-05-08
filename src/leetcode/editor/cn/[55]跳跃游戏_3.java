@@ -21,7 +21,7 @@
 
 package leetcode.editor.cn;
 
-import sun.security.x509.RFC822Name;
+
 
 class LC55{
     public static void main(String[] args) {
@@ -34,7 +34,22 @@ class LC55{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // 贪心 ： 证明结果是最优，每一个都取可达的最大距离
         public boolean canJump(int[] nums) {
+            int max = 0;
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] != 0) {
+                    // 注意是 i + nums[i]
+                    max = Math.max(max, i + nums[i]);
+                }
+                if (max >= nums.length - 1) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public boolean canJump02(int[] nums) {
             int max = 0;
             for (int i = 0; i < nums.length; i++) {
                 if (i <= max) {

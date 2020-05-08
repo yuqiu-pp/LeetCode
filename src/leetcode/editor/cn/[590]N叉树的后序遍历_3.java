@@ -35,12 +35,22 @@ class LC590{
             return list;
         }
 
-        public void bfs(Node node, List<Integer> list) {
+        public void bfs(Node node, List<Integer> res) {
             if (node == null) {
                 return;
             }
             for (Node nd : node.children) {
-                bfs(nd, list);
+                bfs(nd, res);
+            }
+            res.add(node.val);
+        }
+
+        public void bfs01(Node node, List<Integer> list) {
+            if (node == null) {
+                return;
+            }
+            for (Node nd : node.children) {
+                bfs01(nd, list);
             }
             list.add(node.val);
         }

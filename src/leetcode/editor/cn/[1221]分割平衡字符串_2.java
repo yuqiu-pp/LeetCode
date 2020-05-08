@@ -50,9 +50,31 @@ class LC1221{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+
+        public int balancedStringSplit(String s) {
+            int stack = 0;
+            int res = 0;
+            for (int i = 0; i < s.length(); i++) {
+                char ch = s.charAt(i);
+                // if (ch == 'R') {
+                //     stack++;
+                // } else {
+                //     stack--;
+                //     if (stack == 0) {
+                //         res++;
+                //     }
+                // }
+                stack += ch == 'R' ? 1 : -1;
+                if (stack == 0) {
+                    res++;
+                }
+            }
+            return res;
+        }
+
         // 用栈来缓存：1.栈空入栈；2.等于栈顶元素入栈；否则出栈，栈空sum++
         // 提高速度，用计数代替栈操作：L -1，R +1，sum=0，相当于栈空
-        public int balancedStringSplit(String s) {
+        public int balancedStringSplit02(String s) {
             int sum = 0;
             int res = 0;
             for (int i = 0; i < s.length(); i++) {

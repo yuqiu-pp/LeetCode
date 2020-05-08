@@ -16,12 +16,9 @@
 
 package leetcode.editor.cn;
 
-import sun.rmi.server.InactiveGroupException;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.CRC32;
 
 class LC77{
     public static void main(String[] args) {
@@ -34,8 +31,31 @@ class LC77{
     class Solution {
         // 递归 重复子问题：选好一个数，剩下的k-1个位置再次选择
         List<List<Integer>> res = new ArrayList<>();
-
         public List<List<Integer>> combine(int n, int k) {
+            int[] nums = new int[n];
+            for (int i = 0; i < n; i++) {
+                nums[i] = i + 1;
+            }
+            dfs(nums, 0, k, new ArrayList<>());
+            return res;
+        }
+        private void dfs(int[] nums, int index, int k, List<Integer> curr) {
+            if (curr.size() == k) {
+                res.add(new ArrayList<>(curr));
+                return;
+            }
+            for (int i = index; i < nums.length; i++) {
+                curr.add(nums[i]);
+                dfs(nums, i + 1, k, curr);
+                curr.remove(curr.size() - 1);
+                // 用临时变量代替curr往下一层传，可以不用清空当前层数据，因为当前层的curr没有影响
+                // List<Integer> tmp = new ArrayList<>(curr);
+                // tmp.add(nums[i]);
+                // dfs(nums, i + 1, k, tmp);
+            }
+        }
+
+        public List<List<Integer>> combine01(int n, int k) {
             int[] nums = new int[n];
             for (int i = 0; i < n; i++) {
                 nums[i] = i +  1;
@@ -43,7 +63,6 @@ class LC77{
             helper(0, nums, k, new ArrayList<>());
             return res;
         }
-
         private void helper(int index, int[] nums, int k, List<Integer> curr) {
             // 终止条件
             if (k == curr.size()) {

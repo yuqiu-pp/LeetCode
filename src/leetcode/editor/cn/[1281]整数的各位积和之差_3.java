@@ -42,9 +42,20 @@ class LC1281{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        public int subtractProductAndSum(int n) {
+            int sum = 0;
+            int mul = 1;
+            while (n > 0) {
+                sum += n % 10;
+                mul *= n % 10;
+                n = n / 10;
+            }
+            return mul - sum;
+        }
+
         // int转化为string，按位处理
         // int转化为int[]，取模方式，但什么条件结束 n/10 ？
-        public int subtractProductAndSum(int n) {
+        public int subtractProductAndSum02(int n) {
             int sum = 0;
             int mul = 1;
             while (n > 0) {
