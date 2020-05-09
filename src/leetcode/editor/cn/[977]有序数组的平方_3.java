@@ -34,11 +34,32 @@ class LC977{
         Solution solution = new LC977().new Solution();
         // TO TEST
         int[] nums = {-4,-1,0,3,10};
-        System.out.println(Arrays.toString(solution.sortedSquares01(nums)));
+        System.out.println(Arrays.toString(solution.sortedSquares(nums)));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        public int[] sortedSquares(int[] A) {
+            int l = 0;
+            int r = A.length - 1;
+            int[] res = new int[A.length];
+            int i = res.length - 1;
+            // 相等的时候也要处理，否则可能少算一个值
+            while (l <= r) {
+                int m = A[l] * A[l];
+                int n = A[r] * A[r];
+                if (m > n) {
+                    res[i--] = m;
+                    l++;
+                } else {
+                    res[i--] = n;
+                    r--;
+                }
+            }
+            return res;
+        }
+
+
         // 由于有序，平方大的数一定在两端，从两侧遍历，谁大谁进新数组(从尾部开始插入)
         public int[] sortedSquares01(int[] A) {
             int len = A.length;
@@ -58,7 +79,7 @@ class LC977{
             return res;
         }
 
-        public int[] sortedSquares(int[] A) {
+        public int[] sortedSquares00(int[] A) {
             int n = A.length;
             int[] res = new int[n];
             int i = 0;

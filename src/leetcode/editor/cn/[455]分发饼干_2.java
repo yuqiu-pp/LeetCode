@@ -54,6 +54,24 @@ class LC455{
         public int findContentChildren(int[] g, int[] s) {
             Arrays.sort(g);
             Arrays.sort(s);
+            int k = 0;
+            int res = 0;
+            for (int i = 0; i < s.length; i++) {
+                if (g[k] <= s[i]) {
+                    res++;
+                    k++;
+                }
+                // 可以把这个判断放到 for 的条件中
+                if (k > g.length) {
+                    return res;
+                }
+            }
+            return res;
+        }
+
+        public int findContentChildren01(int[] g, int[] s) {
+            Arrays.sort(g);
+            Arrays.sort(s);
             int i = 0;  // 孩子
             for (int j = 0; j < s.length && i < g.length; j++) {
                 if (g[i] <= s[j]) {
