@@ -59,7 +59,7 @@ class  LC1111{
         Solution solution = new LC1111().new Solution();
         // TO TEST
         String str = "((()))()()()()";
-        System.out.println(Arrays.toString(solution.maxDepthAfterSplit(str)));
+        System.out.println(Arrays.toString(solution.maxDepthAfterSplit01(str)));
     }
 
     // parentheses =   [ (, (, ), ), (, )]
@@ -70,6 +70,23 @@ class  LC1111{
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int[] maxDepthAfterSplit(String seq) {
+            int level = 0;
+            int[] res = new int[seq.length()];
+            for (int i = 0; i < res.length; i++) {
+                char ch = seq.charAt(i);
+                if (ch == '(') {
+                    level++;
+                }
+                // res[i] = level % 2 == 0 ? 0 : 1;
+                res[i] = level % 2;
+                if (ch == ')'){
+                    level--;
+                }
+            }
+            return res;
+        }
+
+        public int[] maxDepthAfterSplit01(String seq) {
             int[] res = new int[seq.length()];
             int deep = 0;
             for (int i = 0; i < seq.length(); i++) {

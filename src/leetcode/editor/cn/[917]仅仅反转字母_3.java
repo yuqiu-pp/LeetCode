@@ -41,14 +41,42 @@ import java.util.Arrays;
 class LC917{
     public static void main(String[] args) {
         Solution solution = new LC917().new Solution();
-        // TO TEST
-        System.out.println(solution.reverseOnlyLetters("7_28]"));
+        // TO TEST  "a-bC-dEf-ghIj"
+        System.out.println(solution.reverseOnlyLetters("a-bC-dEf-ghIj"));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        // 双指针 夹逼：遇到非字母跳过
         public String reverseOnlyLetters(String S) {
+            int l = 0;
+            int r = S.length() - 1;
+            char[] strs = S.toCharArray();
+            while (l < r) {
+                // isChar存在重复调用的情况
+                // 优化：当时数字时，局部循环跳过
+                if (isChar(strs[l])  && isChar(strs[r])) {
+                    char ch = strs[l];
+                    strs[l] = strs[r];
+                    strs[r] = ch;
+                    l++;
+                    r--;
+                }
+                if (!isChar(strs[l])) {
+                    l++;
+                }
+                if (!isChar(strs[r])) {
+                    r--;
+                }
+            }
+            return String.valueOf(strs);
+        }
+
+        private boolean isChar(char c) {
+            return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+        }
+
+        // 双指针 夹逼：遇到非字母跳过
+        public String reverseOnlyLetters02(String S) {
             char[] chars = S.toCharArray();
             int len = chars.length;
             int l = 0;
@@ -68,7 +96,7 @@ class LC917{
             }
             return String.valueOf(chars);
         }
-        boolean isChar(char c) {
+        boolean isChar02(char c) {
             return ((c>='a' && c<='z') || (c>='A' && c<='Z'));
         }
 
