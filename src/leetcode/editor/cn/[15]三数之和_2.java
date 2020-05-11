@@ -30,17 +30,57 @@ class LC15{
         Solution solution = new LC15().new Solution();
         // TO TEST
         int[] nums = {-1, 0, 1, 2, -1, -4};
-        System.out.println(solution.threeSum02(nums));
+        System.out.println(solution.threeSum(nums));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+
         // 3层循环：注意每层循环的结束条件
         // 转化为两数之和：a+b = -c，就容易想起用hash表处理了. 但重复数据怎么办？排重？
         // 双指针：首先要排序，然后双指针。确定一个值，然后后面的数据从两边往中间靠。和大于0，大端往减小的方向移动；和小于0，小端往增大方向移动
-
-        // 超时
         public List<List<Integer>> threeSum(int[] nums) {
+            Arrays.sort(nums);
+            List<List<Integer>> res = new ArrayList<>();
+            for (int i = 0; i < nums.length - 2; i++) {
+                if (nums[i] > 0) {
+                    break;
+                }
+                // 相同值跳过
+                if (i > 0 && nums[i] == nums[i-1]) {
+                    continue;
+                }
+                int l = i + 1;
+                int r = nums.length - 1;
+                while (l < r) {
+                    // l + r = -i，三者和为0
+                    if (nums[l] + nums[r] + nums[i] == 0) {
+                        res.add(Arrays.asList(nums[l], nums[r], nums[i]));
+                        // 有相同值，跳过
+                        l++;
+                        while (l < r && nums[l] == nums[l-1]) {
+                            l++;
+                        }
+                        r--;
+                        while (l < r && nums[r] == nums[r+1]) {
+                            r--;
+                        }
+                    }
+                    // l + r > -i，需要将l+r减小才能等于0，r是最大，所以向r减小的方向移动，直到找到(局部循环)
+                    while (l < r && (nums[l] + nums[r] + nums[i] > 0)) {
+                        r--;
+                    }
+                    // l + r < -i，需要将l+r增大才能等于0，l是最小，所以向l增大的方向移动
+                    while (l < r && (nums[l] + nums[r] + nums[i] < 0)) {
+                        l++;
+                    }
+                }
+            }
+            return res;
+        }
+
+        // hashmap 超时
+        public List<List<Integer>> threeSum03(int[] nums) {
             int len = nums.length;
             HashMap<Integer,Integer> map = new HashMap<>();
             for (int i = 0; i < len; i++) {
@@ -111,26 +151,25 @@ class LC15{
             return res;
         }
 
-
+        // 1.暴力
         public List<List<Integer>> threeSum01(int[] nums) {
             int len = nums.length;
-            int sum = 0;
             Set<List<Integer>> res = new HashSet<>();
+            Arrays.sort(nums);
             for (int i = 0; i < len-2; i++) { // 注意结束条件
-                // sum += nums[i];
                 for (int j = i+1; j < len-1; j++) {
-                    // sum += nums[j];
                     for (int k = j+1; k < len; k++) {
-                        // if (sum + nums[k] == 0) {
                         // 直接最里层判断3数的和，避免维护sum的状态
                         if (nums[i] + nums[j] + nums[k] == 0) {
-                            List<Integer> list = new ArrayList<>();
-                            list.add(nums[i]);
-                            list.add(nums[j]);
-                            list.add(nums[k]);
+                            // List<Integer> list = new ArrayList<>();
+                            // list.add(nums[i]);
+                            // list.add(nums[j]);
+                            // list.add(nums[k]);
                             // 排序是为了去重
-                            list.sort(Comparator.comparingInt(x -> x));
-                            res.add(list);
+                            // list.sort(Comparator.comparingInt(x -> x));
+                            // res.add(list);
+                            // 替换上面代码   先对nums排序，再三重循环
+                            res.add(Arrays.asList(nums[i], nums[j], nums[k]));
                         }
                     }
                     // sum = nums[i];

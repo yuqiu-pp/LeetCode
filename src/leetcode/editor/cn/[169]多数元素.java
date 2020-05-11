@@ -39,6 +39,18 @@ class LC169{
         public int majorityElement(int[] nums) {
             return dividAndConquer(nums, 0, nums.length - 1);
         }
+        private int divid(int[] nums, int low, int high) {
+            if (low == high) {
+                return nums[low];
+            }
+            int mid = low + (low + high) / 2;
+            int lower = divid(nums, low, mid);
+            int higher = divid(nums, mid + 1, high);
+            if (lower == higher) {
+                return lower;
+            }
+            return countInRange(nums,lower,low,high) > countInRange(nums,higher,mid+1,high) ? lower : higher;
+        }
         private int dividAndConquer(int[] nums, int low, int high) {
             // 终止条件
             if (low == high) {

@@ -48,6 +48,17 @@ class LC17{
             return res;
         }
         private void dfs(String digits, int index, String curr) {
+            if (digits.length() == curr.length()) {
+                res.add(curr);
+                return;
+            }
+            char[] chars = map.get(digits.charAt(index)).toCharArray();
+            for (int i = 0; i < chars.length; i++) {
+                dfs(digits, index + 1, curr + String.valueOf(chars[i]));
+            }
+        }
+
+        private void dfs01(String digits, int index, String curr) {
             if (index == digits.length()) {
                 res.add(curr);
                 return;
@@ -61,7 +72,7 @@ class LC17{
                 // curr = curr.substring(0, curr.length()-1);
                 // 代替上面代码  curr + ch的操作直接放在参数中时，不会改变curr的值，所以递归返回后不需要还原
                 //             char 转 string 两种方法
-                dfs(digits, index + 1, curr + Character.toString(s.charAt(i)));
+                dfs01(digits, index + 1, curr + Character.toString(s.charAt(i)));
             }
         }
 
@@ -69,7 +80,7 @@ class LC17{
         // index 从digit的第几位开始处理， 也就是level
         private void helper(String digit, int index, String curr)  {
             // 不能用curr.length() 作为比较依据，因为第一次递归进来是两者相等，直接就返回了
-            if (digit.length() == index) {
+            if (digit.length() == curr.length()) {
                 res.add(curr);
                 return;
             }

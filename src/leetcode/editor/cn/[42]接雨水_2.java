@@ -26,9 +26,40 @@ class LC42{
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        public int trap(int[] height) {
+            int l = 0;
+            int r = height.length - 1;
+            int res = 0;
+            // 分别找两端可能存水的起始位置
+            while (l < r && height[l] < height[l+1]) {
+                l++;
+            }
+            while (l < r && height[r] < height[r-1]) {
+                r--;
+            }
+            // 开始两边向中间推进 谁小移动谁
+            while (l < r) {
+                int left = height[l];
+                int right = height[r];
+                if (height[l] < height[r]) {
+                    // 要和最左边的值比较，所以需要先保存一下
+                    while (left > height[l]) {
+                        res += left - height[l];
+                        l++;
+                    }
+                } else {
+                    while (right > height[r]) {
+                        res += right - height[r];
+                        r--;
+                    }
+                }
+            }
+            return res;
+        }
+
         // 双指针：那边小，那边移动
         // 当前指针要和左右两边进行比较才能确定是否可以蓄水，所以涉及3个数据的比较
-        public int trap(int[] height) {
+        public int trap01(int[] height) {
             int len = height.length;
             int l = 0;
             int r = len - 1;

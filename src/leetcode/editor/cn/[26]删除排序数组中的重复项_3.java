@@ -59,11 +59,25 @@ class LC26{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        public int removeDuplicates(int[] nums) {
+            int j = 0;
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] != nums[j]) {
+                    // int tmp = nums[j+1];
+                    nums[j+1] = nums[i];
+                    // nums[i] = tmp;
+                    j++;
+                }
+            }
+            return j + 1;
+        }
+
+
         // 双指针：i向后遍历，j指向第一个不重复的元素，替换时j先++，再替换
         // i         i
         // 0    0    1     1     1
         // j  ++j    换
-        public int removeDuplicates(int[] nums) {
+        public int removeDuplicates02(int[] nums) {
             int j = 0;
             for (int i = 0; i < nums.length; i++) {
                 if (nums[i] != nums[j]) {
