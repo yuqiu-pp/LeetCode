@@ -20,12 +20,9 @@
 
 package leetcode.editor.cn;
 
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.CRC32;
 
 class LC78{
     public static void main(String[] args) {

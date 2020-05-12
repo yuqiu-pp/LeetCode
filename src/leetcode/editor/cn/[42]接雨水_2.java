@@ -41,16 +41,19 @@ class LC42{
             while (l < r) {
                 int left = height[l];
                 int right = height[r];
-                if (height[l] < height[r]) {
-                    // 要和最左边的值比较，所以需要先保存一下
-                    while (left > height[l]) {
+                if (left < right) {
+                    // 要和最左边的值比较，所以需要先保存一下  left  l   right  三个数位置
+                    // while (l < r && left >= height[l]) {
+                    //     res += left - height[l];
+                    //     l++;
+                    // }
+                    // 两种while循环都可以，只是上面的循环会多一次 res+=0的运算
+                    while (l < r && left > height[++l]) {
                         res += left - height[l];
-                        l++;
                     }
                 } else {
-                    while (right > height[r]) {
+                    while (l < r && right > height[--r]) {
                         res += right - height[r];
-                        r--;
                     }
                 }
             }

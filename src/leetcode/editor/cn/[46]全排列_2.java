@@ -17,7 +17,9 @@
 package leetcode.editor.cn;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 class LC46{
     public static void main(String[] args) {
@@ -31,6 +33,26 @@ class LC46{
         List<List<Integer>> res = new ArrayList<>();
 
         public List<List<Integer>> permute(int[] nums) {
+            List<Integer> set = new ArrayList<>(Arrays.stream(nums).boxed().collect(Collectors.toList()));
+            dfs(nums.length, set, 0, new Integer[nums.length]);
+            return res;
+        }
+        // n 总个数   level 已有个数
+        private void dfs(int n, List<Integer> set, int level, Integer[] curr) {
+            if (level == n) {
+                res.add(new ArrayList<>(Arrays.asList(curr)));
+                return;
+            }
+            for (int i = 0; i < n - level; i++) {
+                curr[level] = set.get(0);
+                set.remove(0);
+                dfs(n, set, level + 1, curr);
+                set.add(curr[level]);
+            }
+        }
+
+
+        public List<List<Integer>> permute01(int[] nums) {
             List<Integer> list = new ArrayList<>();
             for (int i : nums) {
                 list.add(i);
@@ -39,7 +61,7 @@ class LC46{
             // backtrack(nums, new ArrayList<>());
             return res;
         }
-        // 时间复杂度：O(n * n!)O(n∗n!)   2ms
+        // 时间复杂度：O(n * n!)   2ms
         // 1. list 剩余的元素。  每次删除。   2. 另一种方式，利用boolean数组标识改位置的数是否被用过  3. list.contains
         // n 总的格子数量
         // m 还需要填几个元素
