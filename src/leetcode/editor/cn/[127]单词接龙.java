@@ -43,19 +43,22 @@
 
 package leetcode.editor.cn;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class LC127{
     public static void main(String[] args) {
         Solution solution = new LC127().new Solution();
         // TO TEST
-        System.out.println(solution.ladderLength());
+        List<String> wodList = new ArrayList<>(Arrays.asList("hot","dot","dog","lot","log","cog"));
+        System.out.println(solution.ladderLength("hit", "cog", wodList));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        
+        return 0;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

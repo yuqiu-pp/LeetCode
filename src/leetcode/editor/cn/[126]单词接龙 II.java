@@ -44,21 +44,81 @@
 
 package leetcode.editor.cn;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class LC126{
     public static void main(String[] args) {
         Solution solution = new LC126().new Solution();
         // TO TEST
-        System.out.println(solution.findLadders());
+        List<String> wodList = new ArrayList<>(Arrays.asList("si","go","se","cm","so","ph","mt","db","mb","sb","kr","ln","tm","le","av","sm","ar","ci","ca","br","ti","ba","to","ra","fa","yo","ow","sn","ya","cr","po","fe","ho","ma","re","or","rn","au","ur","rh","sr","tc","lt","lo","as","fr","nb","yb","if","pb","ge","th","pm","rb","sh","co","ga","li","ha","hz","no","bi","di","hi","qa","pi","os","uh","wm","an","me","mo","na","la","st","er","sc","ne","mn","mi","am","ex","pt","io","be","fm","ta","tb","ni","mr","pa","he","lr","sq","ye"));
+        System.out.println(solution.findLadders01("qa", "sq", wodList));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+    class Solution {
+        List<List<String>> res = new ArrayList<>();
+        char[] chars = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
+        public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+
+            return null;
+        }
+
+        // 超出时间限制
+        public List<List<String>> findLadders01(String beginWord, String endWord, List<String> wordList) {
+            if (!wordList.contains(endWord)) {
+                return res;
+            }
+            // 依次替换每个字母
+            List<String> list = new ArrayList<>();
+            list.add(beginWord);
+            dfs(beginWord, endWord, wordList, list);
+
+            return res;
+        }
+        // curr 替换后的字符串
+        private void dfs(String beginWord, String endWord, List<String> wordList, List<String> curr) {
+            // terminator
+            if (curr.contains(endWord)) {
+                if (res.size() != 0) {
+                    if (curr.size() < res.get(0).size()) {
+                        res.clear();
+                    } else if (curr.size() > res.get(0).size())  {
+                        return;
+                    }
+                }
+                res.add(new ArrayList<>(curr));
+                System.out.println(curr);
+                return;
+            }
+            if (curr.size() == wordList.size()) {
+                return;
+            }
+            for (int i = 0; i < beginWord.length(); i++) {
+                char ch = beginWord.charAt(i);
+                // if (beginWord.equals("ba") && i == 1) {
+                //     System.out.println("ba");
+                // }
+                // 从26个字母中选一个替换一个字符
+                for (int j = 0; j < chars.length; j++) {
+                    if (ch == chars[j]) {
+                        continue;
+                    }
+                    char[] begin = beginWord.toCharArray();
+                    begin[i] = chars[j];
+                    String str = String.valueOf(begin);
+                    if (!wordList.contains(str) || curr.contains(str)) {
+                        continue;
+                    }
+                    curr.add(str);
+                    dfs(str, endWord, wordList, curr);
+                    curr.remove(curr.size() - 1);
+                }
+            }
+        }
     }
-}
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
 }

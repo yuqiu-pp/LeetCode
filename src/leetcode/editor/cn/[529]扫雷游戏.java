@@ -75,13 +75,13 @@ class LC529{
     public static void main(String[] args) {
         Solution solution = new LC529().new Solution();
         // TO TEST
-        System.out.println(solution.updateBoard());
+        System.out.println(solution.updateBoard(null, null));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public char[][] updateBoard(char[][] board, int[] click) {
-
+        return null;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

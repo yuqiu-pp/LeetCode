@@ -34,13 +34,13 @@ class LC200{
     public static void main(String[] args) {
         Solution solution = new LC200().new Solution();
         // TO TEST
-        System.out.println(solution.numIslands());
+        // System.out.println(solution.numIslands());
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int numIslands(char[][] grid) {
-
+        return 0;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
