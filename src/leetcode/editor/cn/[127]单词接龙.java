@@ -43,24 +43,62 @@
 
 package leetcode.editor.cn;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 class LC127{
     public static void main(String[] args) {
         Solution solution = new LC127().new Solution();
         // TO TEST
         List<String> wodList = new ArrayList<>(Arrays.asList("hot","dot","dog","lot","log","cog"));
-        System.out.println(solution.ladderLength("hit", "cog", wodList));
+        System.out.println(solution.ladderLength02("hit", "cog", wodList));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        return 0;
-    }
-}
-//leetcode submit region end(Prohibit modification and deletion)
+    class Solution {
+        List<String> res = new ArrayList<>();
 
+        public int ladderLength02(String beginWord, String endWord, List<String> wordList) {
+            if (wordList.size() == 0 || !wordList.contains(endWord)) {
+                return 0;
+            }
+            boolean[] isVisited = new boolean[wordList.size()];
+            int countVisited = 0;
+            Queue<String> queue = new LinkedList<>();
+            queue.offer(beginWord);
+            while (queue.size() > 0) {
+                int n = queue.size();
+                countVisited ++;
+                for (int i = 0; i < n; i++) {
+                    String poll = queue.poll();
+                    for (int j = 0; j < wordList.size(); j++) {
+                        if (isVisited[j]) {
+                            continue;
+                        }
+                        if (isCanConvert(poll, wordList.get(j))) {
+                            queue.offer(wordList.get(j));
+                            isVisited[j] = true;
+                            if (endWord.equals(wordList.get(j))) {
+                                return countVisited + 1;
+                            }
+                        }
+                    }
+                }
+            }
+            return 0;
+        }
+
+        private boolean isCanConvert(String a, String b) {
+            int count = 0;
+            for (int i = 0; i < a.length(); i++) {
+                if (a.charAt(i) != b.charAt(i)) {
+                    count++;
+                }
+                if (count > 1) {
+                    return false;
+                }
+            }
+            return count == 1;
+        }
+    }
+    //leetcode submit region end(Prohibit modification and deletion)
 }
