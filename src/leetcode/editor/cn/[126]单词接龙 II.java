@@ -44,16 +44,14 @@
 
 package leetcode.editor.cn;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 class LC126{
     public static void main(String[] args) {
         Solution solution = new LC126().new Solution();
         // TO TEST
-        List<String> wodList = new ArrayList<>(Arrays.asList("si","go","se","cm","so","ph","mt","db","mb","sb","kr","ln","tm","le","av","sm","ar","ci","ca","br","ti","ba","to","ra","fa","yo","ow","sn","ya","cr","po","fe","ho","ma","re","or","rn","au","ur","rh","sr","tc","lt","lo","as","fr","nb","yb","if","pb","ge","th","pm","rb","sh","co","ga","li","ha","hz","no","bi","di","hi","qa","pi","os","uh","wm","an","me","mo","na","la","st","er","sc","ne","mn","mi","am","ex","pt","io","be","fm","ta","tb","ni","mr","pa","he","lr","sq","ye"));
-        System.out.println(solution.findLadders01("qa", "sq", wodList));
+        List<String> wodList = new ArrayList<>(Arrays.asList("hot","dot","dog","lot","log","cog"));
+        System.out.println(solution.findLadders("hit", "cog", wodList));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -62,13 +60,84 @@ class LC126{
         char[] chars = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
         public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+            if (wordList.size() == 0 || !wordList.contains(endWord)) {
+                return res;
+            }
+            Queue<String> queue = new LinkedList<>();
+            int min = 0;
+            queue.add(beginWord);
+            while (queue.size() > 0) {
+                int n = queue.size();
+                for (int i = 0; i < n; i++) {
+                    
+                }
+            }
+        }
 
+        public List<List<String>> findLadders02(String beginWord, String endWord, List<String> wordList) {
+            if (wordList.size() == 0 || !wordList.contains(endWord)) {
+                if (wordList.size() == 0 || !wordList.contains(endWord)) {
+                    return res;
+                }
+                return res;
+            }
+            List<String> list = new ArrayList<>();
+            list.add(beginWord);
+            dfs2(beginWord, endWord, wordList, list);
+            Set<List<String>> set = new LinkedHashSet<>();
+            for (int i = 0; i < res.size(); i++) {
+                set.add(res.get(i));
+            }
+            res.clear();
+            // set.forEach(x -> res.add(x));
+            res.addAll(set);
+            return res;
+        }
 
-            return null;
+        private void dfs2(String begin, String end, List<String> wordList, List<String> curr) {
+            if (curr.contains(end)) {
+                if (res.size() == 0) {
+                    res.add(new ArrayList<>(curr));
+                } else {
+                    if (res.get(0).size() > curr.size()) {
+                        res.clear();
+                        res.add(new ArrayList<>(curr));
+                    }
+                    if (res.get(0).size() == curr.size()) {
+                        res.add(new ArrayList<>(curr));
+                    }
+                }
+                return;
+            }
+            for (int i = 0; i < wordList.size(); i++) {
+                String tmp = wordList.get(i);
+                if (curr.contains(wordList.get(i))) {
+                    continue;
+                }
+                if (isCanConvert(begin,wordList.get(i))) {
+                    curr.add(wordList.get(i));
+                    // 新转换的词 再去查找
+                    dfs2(wordList.get(i), end, wordList, curr);
+                    curr.remove(curr.size() - 1);
+                }
+            }
+        }
+
+        private boolean isCanConvert(String a, String b) {
+            int count = 0;
+            for (int i = 0; i < a.length(); i++) {
+                if (a.charAt(i) != b.charAt(i)) {
+                    count ++;
+                }
+                if (count > 1) {
+                    return false;
+                }
+            }
+            return count == 1;
         }
 
 
-        // 超出时间限制
+        // 超出时间限制  还需排重
         public List<List<String>> findLadders01(String beginWord, String endWord, List<String> wordList) {
             if (!wordList.contains(endWord)) {
                 return res;
