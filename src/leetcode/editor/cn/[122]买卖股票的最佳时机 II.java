@@ -47,14 +47,28 @@ class LC122{
         // TO TEST
         int[] prices = {1,2,3,4,5};
         // int[] prices = {7,6,4,3,1};
-        System.out.println(solution.maxProfit(prices));
+        System.out.println(solution.maxProfit01(prices));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // 贪心适用场景：用动态规划有些杀鸡用牛刀的时候
+        // 第i天与i+1天比较，涨就计入利润
+        public int maxProfit(int[] prices) {
+            int res = 0;
+            int len = prices.length;
+            for (int i = 0; i < len - 1; i++) {
+                int diff = prices[i + 1] - prices[i];
+                if (diff > 0) {
+                    res += diff;
+                }
+            }
+            return res;
+        }
+
         //  动态规划：找递推公式
         //  将buy和sell两个一维数组，合并为一个二维数组.  4 ms，比两个数组(2ms) 慢
-        public int maxProfit(int[] prices) {
+        public int maxProfit02(int[] prices) {
             int n = prices.length;
             if (n <= 1) {
                 return 0;

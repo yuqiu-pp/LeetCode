@@ -60,18 +60,56 @@ class LC126{
         char[] chars = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
         public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
-            if (wordList.size() == 0 || !wordList.contains(endWord)) {
+            // 访问速度变为O(1)
+            Set<String> wordSet = new HashSet<>(wordList);
+            if (!wordSet.contains(endWord)) {
                 return res;
             }
-            Queue<String> queue = new LinkedList<>();
-            int min = 0;
-            queue.add(beginWord);
-            while (queue.size() > 0) {
+            // boolean flag = false;
+            // Set<String> isVisited = new HashSet<>();
+            Queue<List<String>> queue = new LinkedList<>();
+            queue.add(Arrays.asList(beginWord));
+            // isVisited.add(beginWord);
+            // while (!queue.isEmpty() && !flag) {
+            while (!queue.isEmpty()) {
                 int n = queue.size();
+                Set<String> subVistied = new HashSet<>();
                 for (int i = 0; i < n; i++) {
-                    
+                    List<String> poll = queue.poll();
+                    String word = poll.get(poll.size() - 1);
+                    char[] chars = word.toCharArray();
+                    for (int j = 0; j < chars.length; j++) {
+                        char tmp = chars[j];
+                        // 依次替换每一个字符
+                        for (char ch = 'a'; ch <= 'z'; ch++) {
+                            if (tmp == ch) {
+                                continue;
+                            }
+                            chars[j] = ch;
+                            String str = new String(chars);
+                            // if (wordSet.contains(str) && !isVisited.contains(str)) {
+                            if (wordSet.contains(str)) {
+                                List<String> list = new ArrayList<>(poll);
+                                list.add(str);
+                                subVistied.add(str);
+                                if (str.equals(endWord)) {
+                                    // flag = true;
+                                    res.add(list);
+                                }
+                                queue.offer(list);
+                            }
+                        }
+                        chars[j] = tmp;
+                    }
                 }
+                if (res.size() > 0) {
+                    break;
+                }
+                // 也可以将访问过的都删除，就不需要记录
+                // isVisited.addAll(subVistied);
+                wordSet.removeAll(subVistied);
             }
+            return res;
         }
 
         public List<List<String>> findLadders02(String beginWord, String endWord, List<String> wordList) {
