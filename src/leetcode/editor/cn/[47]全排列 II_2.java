@@ -13,10 +13,8 @@
 
 package leetcode.editor.cn;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.logging.Level;
 
 class LC47{
     public static void main(String[] args) {
@@ -34,6 +32,32 @@ class LC47{
 
         public List<List<Integer>> permuteUnique(int[] nums) {
             List<Integer> list = new ArrayList<>();
+            for (int i = 0; i < nums.length; i++) {
+                list.add(nums[i]);
+            }
+            backtrack(list, nums.length, new ArrayList<>());
+            res.addAll(set);
+            return res;
+        }
+        private void backtrack(List<Integer> nums, int len, List<Integer> curr) {
+            // terminator
+            if (curr.size() == len) {
+                set.add(new ArrayList<>(curr));
+                return;
+            }
+            // curr level
+            // next level
+            // 清除当前层状态
+            for (int i = 0; i < nums.size(); i++) {
+                curr.add(nums.get(0));
+                nums.remove(0);
+                backtrack(nums, len, curr);
+                nums.add(curr.get(curr.size() - 1));
+                curr.remove(curr.size() - 1);
+            }
+        }
+        public List<List<Integer>> permuteUnique01(int[] nums) {
+            List<Integer> list = new ArrayList<>();
             for (int i : nums) {
                 list.add(i);
             }
@@ -45,7 +69,7 @@ class LC47{
             res.addAll(set);
             return res;
         }
-        // 时间复杂度：O(n * n!)O(n∗n!)   2ms
+        // 时间复杂度：O(n * n!)  2ms
         // list 剩余的元素。  每次删除
         // n 总的格子数量
         // m 还需要填几个元素
@@ -71,7 +95,7 @@ class LC47{
         // 剩余集合：helper 通过remove结点方式
         // 也可以 用list.contains方式
         // 每次递归都执行for n  效率没有helper的高   3ms
-        private void backtrack(int[] nums, List<Integer> curr) {
+        private void backtrack01(int[] nums, List<Integer> curr) {
             if (curr.size() == nums.length) {
                 res.add(new ArrayList<>(curr));
                 return;
@@ -79,7 +103,7 @@ class LC47{
             for (int i = 0; i < nums.length; i++) {
                 if (!curr.contains(nums[i])) {
                     curr.add(nums[i]);
-                    backtrack(nums, curr);
+                    backtrack01(nums, curr);
                     curr.remove(curr.size() - 1);
                 }
             }
