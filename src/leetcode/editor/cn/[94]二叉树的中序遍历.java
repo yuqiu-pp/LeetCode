@@ -44,9 +44,20 @@ class LC94{
      * }
      */
     class Solution {
+        List<Integer> res = new ArrayList<>();
+
+        public List<Integer> inorderTraversal(TreeNode root) {
+            if (root == null) {
+                return res;
+            }
+            inorderTraversal(root.left);
+            res.add(root.val);
+            inorderTraversal(root.right);
+        }
+
         // -----------栈---------------
         // 在递归的过程中使用了系统栈，所以在迭代的解法中常用Stack来模拟系统栈
-        public List<Integer> inorderTraversal(TreeNode root) {
+        public List<Integer> inorderTraversal03(TreeNode root) {
             Stack<TreeNode> stack = new Stack<>();
             List<Integer> res = new ArrayList<>();
             TreeNode curr = root;

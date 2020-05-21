@@ -43,8 +43,36 @@ class LC74{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        // 二阶转化为一阶有序数组，用二分  row=i/n, col=i%n
+        // 为什么可以用二分？  3个条件：单调、有界、
         public boolean searchMatrix(int[][] matrix, int target) {
+            int m = matrix.length;
+            // 判空
+            if (m == 0) {
+                return false;
+            }
+            int n = matrix[0].length;
+            int left = 0;
+            int right = m * n - 1;
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+                // 转化为矩阵的坐标
+                int row = mid / n;
+                int col = mid % n;
+                if (target == matrix[row][col]) {
+                    return true;
+                }
+                if (target < matrix[row][col]) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            return false;
+        }
+
+
+        // 二阶转化为一阶有序数组，用二分  row=i/n, col=i%n
+        public boolean searchMatrix01(int[][] matrix, int target) {
             int m = matrix.length;
             if (m == 0) {
                 return false;
@@ -56,8 +84,8 @@ class LC74{
             int right = m * n - 1;
             while (left <= right) {
                 int mid = left + (right - left) / 2;
-                int row = mid / (n);
-                int col = mid % (n);
+                int row = mid / n;
+                int col = mid % n;
                 if (matrix[row][col] == target) {
                     return true;
                 }

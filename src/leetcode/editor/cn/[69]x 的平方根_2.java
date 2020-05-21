@@ -30,8 +30,37 @@ class LC69{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        // 结果在 (0, x) 之间，单调区间，可以用索引取值
+        // 结果在(0, x) 之间，转化为在区间内查找targe
+        // 满足二分条件
         public int mySqrt(int x) {
+            // 特殊值忘了
+            if (x == 0 || x == 1) {
+                return x;
+            }
+
+            long left = 0;
+            long right = x;
+            while (left <= right) {
+                // 防止溢出  要用long  不能用int
+                long mid = left + (right - left) / 2;
+                // 这种是不精确的，不能这么判断
+                // if (mid * mid == x) {
+                //     return mid;
+                // }
+                if (mid * mid < x) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            // 一定有值，不会返回 -1
+            // return -1;
+            // 为什么返回right ？ 因为循环结束的条件是  left > right, 题目要求的结果是取整数下界
+            return (int) right;
+        }
+
+        // 结果在 (0, x) 之间，单调区间，可以用索引取值
+        public int mySqrt01(int x) {
             if (x == 0 || x == 1) {
                 return x;
             }
