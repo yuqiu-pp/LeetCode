@@ -13,24 +13,56 @@
 
 package leetcode.editor.cn;
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
+
 import java.util.*;
-import java.util.logging.Level;
+
 
 class LC47{
     public static void main(String[] args) {
         Solution solution = new LC47().new Solution();
         // TO TEST
-        System.out.println(solution.permuteUnique(new int[] {1, 1, 2}));
+        System.out.println(solution.permuteUnique02(new int[] {1, 1, 2}));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     // 1. 在46题基础上，利用set排重。  有可能需要排序后，才能通过set排重。 这里不需要排序
     // 2. 想清楚是什么情况下回产生相同结果：curr 相同， 剩余 集合相同。 想到的是用hash表保存，递归时查询
+    // 3. 思想与2类似  剪枝：当前点与前一个点相同，且前一个已经访问过(? 前一个什么情况下不会被访问) 不再递归
+    //                必须排序
     class Solution {
         List<List<Integer>> res = new ArrayList<>();
         Set<List<Integer>> set = new HashSet<>();
 
         public List<List<Integer>> permuteUnique(int[] nums) {
+            Arrays.sort(nums);
+            dfs(nums, 0, new int[nums.length], new ArrayList<>());
+            return res;
+        }
+        private void dfs(int[] nums, int index, int[] isVisited, List<Integer> curr) {
+            if (curr.size() == nums.length) {
+                res.add(new ArrayList<>(curr));
+                return;
+            }
+            for (int i = 0; i < nums.length; i++) {
+                if (isVisited[i] == 1) {
+                    continue;
+                }
+                // 剪枝
+                if (i > 0 && (nums[i] == nums[i-1] && isVisited[i-1]==1)){
+                    break;
+                }
+                if (!curr.contains(nums[i]) || isVisited[i] == 0) {
+                    curr.add(nums[i]);
+                    isVisited[i] = 1;
+                    dfs(nums, i + 1, isVisited, curr);
+                    isVisited[i] = 0;
+                    curr.remove(curr.size() - 1);
+                }
+            }
+        }
+
+        public List<List<Integer>> permuteUnique02(int[] nums) {
             List<Integer> list = new ArrayList<>();
             for (int i = 0; i < nums.length; i++) {
                 list.add(nums[i]);
@@ -56,6 +88,8 @@ class LC47{
                 curr.remove(curr.size() - 1);
             }
         }
+
+
         public List<List<Integer>> permuteUnique01(int[] nums) {
             List<Integer> list = new ArrayList<>();
             for (int i : nums) {

@@ -27,6 +27,36 @@ class LC42{
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int trap(int[] height) {
+            int res = 0;
+            // 两边向中间逼近，先把两边非递增的位置，因为只有下降时才能存水
+            int l = 0;
+            int r = height.length - 1;
+            while (l < r && height[l] < height[l + 1]) {
+                l ++;
+            }
+            while (l < r && height[r] < height[r - 1]) {
+                r --;
+            }
+            // left   curr    right   3个值进行比较
+            // 选left、right小的一侧开始向中间推进，直到curr > 选出的小值，left = curr
+            // curr指向位置的存水 = min(left, right) - curr
+            while (l < r) {
+                int left = height[l];
+                int right = height[r];
+                if (left < right) {
+                    while (l < r && height[++l] < left) {
+                        res += left - height[l];
+                    }
+                } else {
+                    while (l < r && height[--r] < right) {
+                        res += right - height[r];
+                    }
+                }
+            }
+            return res;
+        }
+
+        public int trap03(int[] height) {
             int l = 0;
             int r = height.length - 1;
             int res = 0;

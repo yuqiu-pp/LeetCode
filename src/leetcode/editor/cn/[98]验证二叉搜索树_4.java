@@ -51,14 +51,47 @@ class LC98{
         TreeNode n = new TreeNode(20);
         right.left = m;
         right.right = n;
-        System.out.println(solution.isValidBST01(root));
+        System.out.println(solution.isValidBST(root));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // 左子树小于当前节点  root.left.val < root.val； root.right.val > root.val
+        // 子树也是二叉搜索树  递归，但子树节点值要小于根节点
+        public boolean isValidBST(TreeNode root) {
+            return subIsValid(root, null, null);
+        }
+        private boolean subIsValid01(TreeNode node, TreeNode lower, TreeNode upper) {
+            if (node == null) {
+                return true;
+            }
+            if (lower != null && node.val <= lower.val) {
+                return false;
+            }
+            if (upper != null && node.val >= upper.val) {
+                return false;
+            }
+            return subIsValid01(node.left, lower, node) &&  subIsValid01(node.right, node, upper);
+        }
+        //  如果传值的话，就要判 左右子树是否为空，逻辑比较复杂，所以传节点比较好
+        // private boolean subIsValid(TreeNode node, int low, int high) {
+        // 传节点 是 从下一层 往上比较的思路，省去了先判空再操作的复杂性
+        private boolean subIsValid(TreeNode node, TreeNode lower, TreeNode upper) {
+            if (node == null) {
+                return true;
+            }
+            if (lower != null && node.val <= lower.val) {
+                return false;
+            }
+            if (upper != null && node.val >= upper.val) {
+                return false;
+            }
+            return subIsValid(node.left, lower, node) && subIsValid(node.right, node, upper);
+        }
+
         // 1.子树值满足与当前节点的关系
         // 2.子树值要满足与根节点的关系，所处递归时要把root的值传递下去
-        public boolean isValidBST(TreeNode root) {
+        public boolean isValidBST03(TreeNode root) {
             return dfs(root, null, null);
         }
         private boolean dfs(TreeNode node, TreeNode lower, TreeNode upper) {

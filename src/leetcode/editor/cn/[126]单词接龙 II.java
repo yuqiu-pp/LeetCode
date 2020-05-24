@@ -57,60 +57,107 @@ class LC126{
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         List<List<String>> res = new ArrayList<>();
-        char[] chars = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
+        // BFS   wordList -> wordSet 提高访问提速；
+        // visitedSet 记录访问过的点， 因为不同的词可能变换为同一个单词，所以要处理完一层后再设置visited，避免丢解
+        // 要返回 路径结果集，保存在哪里？  只能保存在队列中，每次用list中最后一个单词去转化
         public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
-            // 访问速度变为O(1)
-            Set<String> wordSet = new HashSet<>(wordList);
-            if (!wordSet.contains(endWord)) {
-                return res;
-            }
-            // boolean flag = false;
-            // Set<String> isVisited = new HashSet<>();
+            List<List<String>> res = new ArrayList<>();
+            Set<String> wordSet = new HashSet<>();
+            wordSet.addAll(wordList);
             Queue<List<String>> queue = new LinkedList<>();
-            queue.add(Arrays.asList(beginWord));
-            // isVisited.add(beginWord);
-            // while (!queue.isEmpty() && !flag) {
+            // List<String> list = Arrays.asList(beginWord);
+            queue.offer(Arrays.asList(beginWord));
             while (!queue.isEmpty()) {
                 int n = queue.size();
-                Set<String> subVistied = new HashSet<>();
+                Set<String> visitedSet = new HashSet<>();
                 for (int i = 0; i < n; i++) {
                     List<String> poll = queue.poll();
-                    String word = poll.get(poll.size() - 1);
-                    char[] chars = word.toCharArray();
+                    String str = poll.get(poll.size() - 1);
+                    char[] chars = str.toCharArray();
                     for (int j = 0; j < chars.length; j++) {
                         char tmp = chars[j];
-                        // 依次替换每一个字符
                         for (char ch = 'a'; ch <= 'z'; ch++) {
-                            if (tmp == ch) {
+                            if (ch == tmp) {
                                 continue;
                             }
                             chars[j] = ch;
-                            String str = new String(chars);
-                            // if (wordSet.contains(str) && !isVisited.contains(str)) {
-                            if (wordSet.contains(str)) {
+                            String s = String.valueOf(chars);
+                            if (wordSet.contains(s)) {
+                                // 创建新的对象
                                 List<String> list = new ArrayList<>(poll);
-                                list.add(str);
-                                subVistied.add(str);
-                                if (str.equals(endWord)) {
-                                    // flag = true;
+                                list.add(s);
+                                queue.offer(list);
+                                visitedSet.add(s);
+                                if (s.equals(endWord)) {
                                     res.add(list);
                                 }
-                                queue.offer(list);
                             }
                         }
                         chars[j] = tmp;
                     }
                 }
+                wordSet.removeAll(visitedSet);
                 if (res.size() > 0) {
-                    break;
+                    return res;
                 }
-                // 也可以将访问过的都删除，就不需要记录
-                // isVisited.addAll(subVistied);
-                wordSet.removeAll(subVistied);
             }
             return res;
         }
+
+
+        public List<List<String>> findLadders03(String beginWord, String endWord, List<String> wordList) {
+                                                                                                     // 访问速度变为O(1)
+                                                                                                     Set<String> wordSet = new HashSet<>(wordList);
+                                                                                                     if (!wordSet.contains(endWord)) {
+                                                                                                     return res;
+                                                                                                     }
+                                                                                                     // boolean flag = false;
+                                                                                                     // Set<String> isVisited = new HashSet<>();
+                                                                                                     Queue<List<String>> queue = new LinkedList<>();
+                                                                                                     queue.add(Arrays.asList(beginWord));
+                                                                                                     // isVisited.add(beginWord);
+                                                                                                     // while (!queue.isEmpty() && !flag) {
+                                                                                                     while (!queue.isEmpty()) {
+                                                                                                     int n = queue.size();
+                                                                                                     Set<String> subVistied = new HashSet<>();
+                                                                                                     for (int i = 0; i < n; i++) {
+                                                                                                     List<String> poll = queue.poll();
+                                                                                                     String word = poll.get(poll.size() - 1);
+                                                                                                     char[] chars = word.toCharArray();
+                                                                                                     for (int j = 0; j < chars.length; j++) {
+                                                                                                     char tmp = chars[j];
+                                                                                                     // 依次替换每一个字符
+                                                                                                     for (char ch = 'a'; ch <= 'z'; ch++) {
+                                                                                                     if (tmp == ch) {
+                                                                                                     continue;
+                                                                                                     }
+                                                                                                     chars[j] = ch;
+                                                                                                     String str = new String(chars);
+                                                                                                     // if (wordSet.contains(str) && !isVisited.contains(str)) {
+                                                                                                     if (wordSet.contains(str)) {
+                                                                                                     List<String> list = new ArrayList<>(poll);
+                                                                                                     list.add(str);
+                                                                                                     subVistied.add(str);
+                                                                                                     if (str.equals(endWord)) {
+                                                                                                     // flag = true;
+                                                                                                     res.add(list);
+                                                                                                     }
+                                                                                                     queue.offer(list);
+                                                                                                     }
+                                                                                                     }
+                                                                                                     chars[j] = tmp;
+                                                                                                     }
+                                                                                                     }
+                                                                                                     if (res.size() > 0) {
+                                                                                                     break;
+                                                                                                     }
+                                                                                                     // 也可以将访问过的都删除，就不需要记录
+                                                                                                     // isVisited.addAll(subVistied);
+                                                                                                     wordSet.removeAll(subVistied);
+                                                                                                     }
+                                                                                                     return res;
+                                                                                                     }
 
         public List<List<String>> findLadders02(String beginWord, String endWord, List<String> wordList) {
             if (wordList.size() == 0 || !wordList.contains(endWord)) {
@@ -188,6 +235,7 @@ class LC126{
             return res;
         }
         // curr 替换后的字符串
+        char[] chars = "abcde".toCharArray();
         private void dfs(String beginWord, String endWord, List<String> wordList, List<String> curr) {
             // terminator
             if (curr.contains(endWord)) {

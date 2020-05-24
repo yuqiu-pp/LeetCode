@@ -47,6 +47,9 @@
 
 package leetcode.editor.cn;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 class LC117{
     public static void main(String[] args) {
         Solution solution = new LC117().new Solution();
@@ -55,7 +58,6 @@ class LC117{
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
-/*
 // Definition for a Node.
 class Node {
     public int val;
@@ -76,13 +78,42 @@ class Node {
         next = _next;
     }
 };
-*/
 
-class Solution {
-    // public Node connect(Node root) {
-    //
-    // }
-}
-//leetcode submit region end(Prohibit modification and deletion)
+
+    class Solution {
+        // bfs  poll先指向null，如何队列还有，则下次出队时更新
+        public Node connect(Node root) {
+            if (root == null) {
+                return null;
+            }
+            Queue<Node> queue = new LinkedList<>();
+            queue.offer(root);
+            while (queue.size() > 0) {
+                int n = queue.size();
+                // preNode 保存前一个值
+                Node preNode = new Node();
+                for (int i = 0; i < n; i++) {
+                    Node node = queue.poll();
+                    node.next = null;
+                    if (node.left != null) {
+                        queue.offer(node.left);
+                    }
+                    if (node.right != null) {
+                        queue.offer(node.right);
+                    }
+                    // if (i > 0) {
+                    //     preNode.next = node;
+                    // }
+                    // preNode = node;
+                    // 优化：利用queue.peek()的特性
+                    if (i < n - 1) {
+                        node.next = queue.peek();
+                    }
+                }
+            }
+            return root;
+        }
+    }
+    //leetcode submit region end(Prohibit modification and deletion)
 
 }

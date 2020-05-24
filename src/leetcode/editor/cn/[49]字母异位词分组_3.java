@@ -27,6 +27,7 @@ class LC49{
         Solution solution = new LC49().new Solution();
         // TO TEST
         String[] strs  = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        // String[] strs = {"duh","ill"};
         List<List<String>> res = solution.groupAnagrams(strs);
         for (List<String> ss : res) {
             System.out.println(Arrays.toString(ss.toArray()));
@@ -35,9 +36,31 @@ class LC49{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // string -> char[]  求和 , hash表保存
+        public List<List<String>> groupAnagrams(String[] strs) {
+            HashMap<String, List<String>> map = new HashMap<>();
+            for (String str : strs) {
+                char[] chars = str.toCharArray();
+                // 不同组合，求和可能相同
+                // int sum = 0;
+                // for (int i = 0; i < chars.length; i++) {
+                //     sum += chars[i];
+                // }
+                Arrays.sort(chars);
+                String sum = String.valueOf(chars);
+                List<String> list = map.getOrDefault(sum, new ArrayList<>());
+                list.add(str);
+                map.put(sum, list);
+            }
+            // List<List<String>> res = new ArrayList<>();
+            // res.addAll(map.values());
+            // return res;
+            return new ArrayList<>(map.values());
+        }
+
         // 判断异位词：string -> char[] , 排序后比较
         // 相同的分类：HashMap记录，key：排序后string值， value：List<string>
-        public List<List<String>> groupAnagrams(String[] strs) {
+        public List<List<String>> groupAnagrams02(String[] strs) {
             HashMap<String, List<String>> map = new HashMap<>();
             for (String s : strs) {
                 char[] chars = s.toCharArray();

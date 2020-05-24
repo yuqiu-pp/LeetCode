@@ -45,16 +45,34 @@ class LC122{
     public static void main(String[] args) {
         Solution solution = new LC122().new Solution();
         // TO TEST
-        int[] prices = {1,2,3,4,5};
-        // int[] prices = {7,6,4,3,1};
-        System.out.println(solution.maxProfit01(prices));
+        // int[] prices = {1,2,3,4,5};
+        int[] prices = {7,1,5,3,6,4};
+        System.out.println(solution.maxProfit(prices));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        public int maxProfit(int[] prices) {
+            int len = prices.length;
+            if (len == 0) {
+                return 0;
+            }
+            int[] buy = new int[len];
+            int[] sell = new int[len];
+            buy[0] = 0 - prices[0];
+            sell[0] = 0;
+            for (int i = 1; i < len; i++) {
+                buy[i] = Math.max(buy[i-1], sell[i-1] - prices[i]);
+                sell[i] = Math.max(buy[i-1] + prices[i], sell[i - 1]);
+                System.out.println(buy[i]);
+                System.out.println(sell[i]);
+            }
+            return Math.max(buy[len-1], sell[len-1]);
+        }
+
         // 贪心适用场景：用动态规划有些杀鸡用牛刀的时候
         // 第i天与i+1天比较，涨就计入利润
-        public int maxProfit(int[] prices) {
+        public int maxProfit03(int[] prices) {
             int res = 0;
             int len = prices.length;
             for (int i = 0; i < len - 1; i++) {

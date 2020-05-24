@@ -29,9 +29,29 @@ class LC77{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        // 递归 重复子问题：选好一个数，剩下的k-1个位置再次选择
         List<List<Integer>> res = new ArrayList<>();
+        // k 个 格子
+        // n 个数中任选两个填充
         public List<List<Integer>> combine(int n, int k) {
+            dfss(n, k, 0, new ArrayList<>());
+            return res;
+        }
+        private void dfss(int n, int k, int index, List<Integer> curr) {
+            if (curr.size() == k) {
+                res.add(new ArrayList<>(curr));
+                return;
+            }
+            for (int i = index; i < n; i++) {
+                curr.add(i + 1);
+                dfss(n, k, i + 1, curr);
+                curr.remove(curr.size() - 1);
+            }
+        }
+
+
+        // 递归 重复子问题：选好一个数，剩下的k-1个位置再次选择
+        // List<List<Integer>> res = new ArrayList<>();
+        public List<List<Integer>> combine02(int n, int k) {
             int[] nums = new int[n];
             for (int i = 0; i < n; i++) {
                 nums[i] = i + 1;

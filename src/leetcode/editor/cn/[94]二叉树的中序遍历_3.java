@@ -30,7 +30,7 @@ class LC94{
         Integer[] nums = {1,null,2,3};
         BinTree binTree = new BinTree();
         TreeNode root = binTree.createBinTree(nums);
-        System.out.println(Arrays.toString(solution.inorderTraversal(root).toArray()));
+        System.out.println(Arrays.toString(solution.inorderTraversal03(root).toArray()));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -46,14 +46,7 @@ class LC94{
     class Solution {
         List<Integer> res = new ArrayList<>();
 
-        public List<Integer> inorderTraversal(TreeNode root) {
-            if (root == null) {
-                return res;
-            }
-            inorderTraversal(root.left);
-            res.add(root.val);
-            inorderTraversal(root.right);
-        }
+
 
         // -----------栈---------------
         // 在递归的过程中使用了系统栈，所以在迭代的解法中常用Stack来模拟系统栈

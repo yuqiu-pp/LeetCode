@@ -25,14 +25,37 @@ class LC46{
     public static void main(String[] args) {
         Solution solution = new LC46().new Solution();
         // TO TEST
-        System.out.println(solution.permute(new int[] {1, 2, 3}));
+        System.out.println(solution.permute00(new int[] {1, 2, 3}));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         List<List<Integer>> res = new ArrayList<>();
-
         public List<List<Integer>> permute(int[] nums) {
+            // 每次从剩余集合中选择第一个，递归返回后还原集合时，将元素放在尾部，这样实现全排列
+            List<Integer> list = new ArrayList<>();
+            list.addAll(Arrays.stream(nums).boxed().collect(Collectors.toList()));
+            backtrack(list, nums.length, new ArrayList<>());
+            return res;
+        }
+        private void backtrack(List<Integer> nums, int n, List<Integer> curr) {
+            if (curr.size() == n) {
+                res.add(new ArrayList<>(curr));
+                return;
+            }
+            // 选一个加入curr
+            for (int i = 0; i < nums.size(); i++) {
+                int tmp = nums.get(0);
+                curr.add(tmp);
+                nums.remove(0);
+                backtrack(nums, n, curr);
+                nums.add(tmp);
+                curr.remove(curr.size() - 1);
+            }
+        }
+
+
+        public List<List<Integer>> permute02(int[] nums) {
             List<Integer> set = new ArrayList<>(Arrays.stream(nums).boxed().collect(Collectors.toList()));
             dfs(nums.length, set, 0, new Integer[nums.length]);
             return res;
@@ -87,6 +110,11 @@ class LC46{
         // 剩余集合：helper 通过remove结点方式
         // 也可以 用list.contains方式
         // 每次递归都执行for n  效率没有helper的高  3ms
+        // 优化：isVisited标记
+        public List<List<Integer>> permute00(int[] nums) {
+            backtrack(nums, new ArrayList<>(), new int[nums.length]);
+            return res;
+        }
         private void backtrack(int[] nums, List<Integer> curr) {
             if (curr.size() == nums.length) {
                 res.add(new ArrayList<>(curr));
@@ -98,6 +126,22 @@ class LC46{
                     backtrack(nums, curr);
                     curr.remove(curr.size() - 1);
                 }
+            }
+        }
+        private void backtrack(int[] nums, List<Integer> curr, int[] isVisted) {
+            if (curr.size() == nums.length) {
+                res.add(new ArrayList<>(curr));
+                return;
+            }
+            for (int i = 0; i < nums.length; i++) {
+                if (isVisted[i] == 1) {
+                    continue;
+                }
+                curr.add(nums[i]);
+                isVisted[i] = 1;
+                backtrack(nums, curr, isVisted);
+                isVisted[i] = 0;
+                curr.remove(curr.size() - 1);
             }
         }
     }

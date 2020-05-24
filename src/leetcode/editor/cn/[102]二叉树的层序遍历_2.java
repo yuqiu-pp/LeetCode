@@ -41,6 +41,27 @@ class LC102{
         // 使用前端而不移出该元素，使用element()或者peek()方法
         List<List<Integer>> res = new ArrayList<>();
         public List<List<Integer>> levelOrder(TreeNode root) {
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.offer(root);
+            while (!queue.isEmpty()) {
+                int n = queue.size();
+                List<Integer> list = new ArrayList<>();
+                for (int i = 0; i < n; i++) {
+                    TreeNode node = queue.poll();
+                    list.add(node.val);
+                    if (node.right != null) {
+                        queue.offer(node.right);
+                    }
+                    if (node.left != null) {
+                        queue.offer(node.left);
+                    }
+                }
+                res.add(list);
+            }
+            return res;
+        }
+
+        public List<List<Integer>> levelOrder02(TreeNode root) {
             HashMap<Integer, List<Integer>> map = new HashMap<>();
             dfs(root, 0, map);
             // for (List<Integer> list : map.values()) {

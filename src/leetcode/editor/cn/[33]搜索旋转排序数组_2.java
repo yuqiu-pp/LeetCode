@@ -27,12 +27,42 @@ class LC33{
         Solution solution = new LC33().new Solution();
         // TO TEST
         int[] nums = {4,5,6,7,0,1,2};
-        System.out.println(solution.search(nums, 0));
+        System.out.println(solution.search01(nums, 0));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // 注意 不能丢等于号
         public int search(int[] nums, int target) {
+            int left = 0;
+            int right = nums.length - 1;
+            // 这里有等于不能忘
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+                if (nums[mid] == target) {
+                    return mid;
+                }
+                // 确定那个区间是单调
+                // 左边单调增   这里有等于不能忘
+                if (nums[left] <= nums[mid]) {
+                    if (nums[left] <= target && target <= nums[mid]) {
+                        right = mid;
+                    } else {
+                        // 不在左边的单调区间内
+                        left = mid;
+                    }
+                } else {
+                    if (nums[mid] <= target && target <= nums[right]) {
+                        left = mid;
+                    }  else {
+                        right = mid;
+                    }
+                }
+            }
+            return -1;
+        }
+
+        public int search01(int[] nums, int target) {
             int left = 0;
             int right = nums.length - 1;
             while (left <= right) {

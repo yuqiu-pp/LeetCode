@@ -50,14 +50,128 @@ class LC127{
         Solution solution = new LC127().new Solution();
         // TO TEST
         List<String> wodList = new ArrayList<>(Arrays.asList("hot","dot","dog","lot","log","cog"));
-        System.out.println(solution.ladderLength02("hit", "cog", wodList));
+        System.out.println(solution.ladderLength("hit", "cog", wodList));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         List<String> res = new ArrayList<>();
 
+        // 找替换词加入队列  1, 从wordList中选词，判断是否能变为poll。 list元素多时，性能差
+        //                 2，poll变换一个字母，判断是否在wordList中。 单词长度短时，性能优于1
+        // 65 ms
+        public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+            Set<String> wordSet = new HashSet<>();
+            wordSet.addAll(wordList);
+            int res = 0;
+
+            Queue<String> queue = new LinkedList<>();
+            queue.offer(beginWord);
+            while (!queue.isEmpty()) {
+                res ++;
+                int n = queue.size();
+                for (int i = 0; i < n; i++) {
+                    String str = queue.poll();
+                    // 查找能替换得到的所有节点，放入队列
+                    for (int j = 0; j < str.length(); j++) {
+                        char[] chars = str.toCharArray();
+                        char tmp = chars[j];
+                        for (char ch = 'a'; ch <= 'z'; ch++) {
+                            if (ch == tmp) {
+                                continue;
+                            }
+                            chars[j] = ch;
+                            String s = String.valueOf(chars);
+                            if (wordSet.contains(s)) {
+                                queue.offer(s);
+                                wordSet.remove(s);
+                                if (s.equals(endWord)) {
+                                    return res + 1;
+                                }
+                            }
+                        }
+                    }
+                }
+                // wordSet.removeAll(list);
+            }
+            // 这里不能直接返res，queue至少会走一层 begingword
+            return 0;
+        }
+        private List<String> canConvert(String str, Set<String> wordSet) {
+            List<String> list = new ArrayList<>();
+
+            char[] chars = str.toCharArray();
+            for (int j = 0; j < str.length(); j++) {
+                char tmp = chars[j];
+                for (char ch = 'a'; ch < 'z'; ch++) {
+                    chars[j] = ch;
+                    String s = String.valueOf(chars);
+                    if (wordSet.contains(s)) {
+                        list.add(s);
+                    }
+                }
+                chars[j] = tmp;
+            }
+            return list;
+        }
+
+
+        // 	654 ms    ?  boolean[] isVistied  比  int[] 效率低
         public int ladderLength02(String beginWord, String endWord, List<String> wordList) {
+            if (!wordList.contains(endWord)) {
+                return 0;
+            }
+            int res = 0;
+            boolean[] isVistied = new boolean[wordList.size()];
+            Queue<String> queue = new LinkedList<>();
+            queue.offer(beginWord);
+            while (!queue.isEmpty()) {
+                res ++;
+                // 求最短路径，所以出现过的单词不再使用，直接从wordList中删除
+                int n = queue.size();
+                List<String> list = new ArrayList<>();
+                for (int i = 0; i < n; i++) {
+                    String poll = queue.poll();
+                    // 找替换词加入队列  1, 从wordList中选词，判断是否能变为poll
+                    //                 2，poll变换一个字母，判断是否在wordList中
+                    for (int j = 0; j < wordList.size(); j++) {
+                        String str = wordList.get(j);
+                        if (isVistied[j]) {
+                            continue;
+                        }
+                        if (canConvert(poll, str)) {
+                            queue.offer(str);
+                            isVistied[j] = true;
+                            if (str.equals(endWord)) {
+                                return res + 1;
+                            }
+                        }
+                    }
+                }
+                // 效率低
+                // wordList.removeAll(list);
+            }
+            return res;
+        }
+        private boolean canConvert(String a, String b) {
+            if (a.length() != b.length()) {
+                return false;
+            }
+            int count = 0;
+            for (int i = 0; i < a.length(); i++) {
+                if (a.charAt(i) != b.charAt(i)) {
+                    count ++;
+                }
+                if (count > 1) {
+                    return false;
+                }
+            }
+            return count == 1;
+        }
+
+
+        // 558 ms
+        public int ladderLength01(String beginWord, String endWord, List<String> wordList) {
             if (wordList.size() == 0 || !wordList.contains(endWord)) {
                 return 0;
             }

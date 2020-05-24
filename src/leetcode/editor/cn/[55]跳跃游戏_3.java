@@ -38,14 +38,30 @@ class LC55{
         public boolean canJump(int[] nums) {
             int max = 0;
             for (int i = 0; i < nums.length; i++) {
-                if (nums[i] != 0) {
+                if (i > max) {
+                    return false;
+                }
+                max = Math.max(max, i + nums[i]);
+                if (max >= nums.length - 1) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        public boolean canJump03(int[] nums) {
+            int max = 0;
+            for (int i = 0; i < nums.length; i++) {
+                // if (nums[i] != 0) {  错误
+                // i在可达的范围内，才是合法的，两种判断方式： if (i > max) 返false;  i < max 更新max
+                if (i < max)
                     // 注意是 i + nums[i]
                     max = Math.max(max, i + nums[i]);
                 }
                 if (max >= nums.length - 1) {
                     return true;
                 }
-            }
             return false;
         }
 

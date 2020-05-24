@@ -35,8 +35,28 @@ class LC78{
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         List<List<Integer>> res = new ArrayList<>();
-
+        // 幂集：所有可能的子集
         public List<List<Integer>> subsets(int[] nums) {
+            res.add(new ArrayList<>());
+            // 格子从 1 ~ nums.length
+            for (int i = 0; i < nums.length; i++) {
+                dfs(nums, i + 1, 0, new ArrayList<>());
+            }
+            return res;
+        }
+        private void dfs(int[] nums, int k, int index, List<Integer> curr) {
+            if (curr.size() == k) {
+                res.add(new ArrayList<>(curr));
+                return;
+            }
+            for (int i = index; i < nums.length; i++) {
+                curr.add(nums[i]);
+                dfs(nums, k, i + 1, curr);
+                curr.remove(curr.size() - 1);
+            }
+        }
+
+        public List<List<Integer>> subsets02(int[] nums) {
             // 选 1、2、3 …… n
             for (int i = 0; i < nums.length+1; i++) {
                 helper(nums, 0, i, new ArrayList<>());
