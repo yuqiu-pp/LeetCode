@@ -38,17 +38,52 @@
 
 package leetcode.editor.cn;
 
+import java.util.Arrays;
+
 class LC547{
     public static void main(String[] args) {
         Solution solution = new LC547().new Solution();
         // TO TEST
-        System.out.println(solution.findCircleNum());
+        int[][] matix = {{1,1,0}, {1,1,0}, {0,0,1}};
+        System.out.println(solution.findCircleNum(matix));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int findCircleNum(int[][] M) {
-
+        int[] parent = new int[M.length];
+        Arrays.fill(parent, -1);
+        for (int i = 0; i < M.length; i++) {
+            for (int j = 0; j < M.length; j++) {
+                if (M[i][j] == 1 && i != j) {
+                    union(parent, i, j);
+                }
+            }
+        }
+        int count = 0;
+        for (int i = 0; i < parent.length; i++) {
+            if (parent[i] == -1) {
+                count ++;
+            }
+        }
+        return count;
+    }
+    // hash表维护关系链，value = 关联点的key
+    // 数组作为简单的hash表，index作为key
+    // parent是根据矩阵所有元素值建立
+    private int find(int parent[], int i) {
+        if (parent[i] == -1) {
+            return i;
+        }
+        return find(parent, parent[i]);
+    }
+    // 合并到一个集合
+    private void union(int parent[], int x, int y) {
+        int xset = find(parent, x);
+        int yset = find(parent, y);
+        if (xset != yset) {
+            parent[xset] = yset;
+        }
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

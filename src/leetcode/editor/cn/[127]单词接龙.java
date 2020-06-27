@@ -56,11 +56,72 @@ class LC127{
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         List<String> res = new ArrayList<>();
+        // 双向BFS：每次遍历一层时，从节点更少的一端遍历。并不是真正的每次都都从两端各走一次
+        public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+            if (wordList == null || !wordList.contains(endWord)) {
+                return 0;
+            }
+            Set<String> wordSet = new HashSet<>();
+            wordSet.addAll(wordList);
+            wordSet.add(beginWord);
 
-        // 找替换词加入队列  1, 从wordList中选词，判断是否能变为poll。 list元素多时，性能差
+            Queue<String> queue1 = new LinkedList<>();
+            Queue<String> queue2 = new LinkedList<>();
+            // 已经遍历过的节点
+            Set<String> visited1 = new HashSet<>();
+            Set<String> visited2 = new HashSet<>();
+            queue1.offer(beginWord);
+            queue2.offer(endWord);
+            visited1.add(beginWord);
+            visited2.add(endWord);
+
+            int res = 0;
+            while (!queue1.isEmpty() && !queue2.isEmpty()) {
+                res ++;
+                // 从节点更少的一端遍历
+                if (queue1.size() > queue2.size()) {
+                    Queue tmp = queue1;
+                    queue1 = queue2;
+                    queue2 = tmp;
+                    Set<String> set = visited1;
+                    visited1 = visited2;
+                    visited2 = set;
+                }
+                int size = queue1.size();
+                while (size-- > 0) {
+                    String s = queue1.poll();
+                    char[] chars = s.toCharArray();
+                    for (int i = 0; i < s.length(); i++) {
+                        char ch = chars[i];
+                        for (char c = 'a'; c <= 'z'; c++) {
+                            chars[i] = c;
+                            String ns = String.valueOf(chars);
+                            // 访问过
+                            if (visited1.contains(ns)) {
+                                continue;
+                            }
+                            // 两端相遇
+                            if (visited2.contains(ns)) {
+                                return res + 1;
+                            }
+                            // 标记为已访问
+                            if (wordSet.contains(ns)) {
+                                visited1.add(ns);
+                                queue1.offer(ns);
+                            }
+                        }
+                        chars[i] = ch;
+                    }
+                }
+            }
+            return 0;
+        }
+
+
+        // BFS找替换词加入队列  1, 从wordList中选词，判断是否能变为poll。 list元素多时，性能差
         //                 2，poll变换一个字母，判断是否在wordList中。 单词长度短时，性能优于1
         // 65 ms
-        public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        public int ladderLength03(String beginWord, String endWord, List<String> wordList) {
             Set<String> wordSet = new HashSet<>();
             wordSet.addAll(wordList);
             int res = 0;
