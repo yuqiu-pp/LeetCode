@@ -18,21 +18,14 @@
 
 package leetcode.editor.cn;
 
-class LC300{
+class LC300 {
     public static void main(String[] args) {
         Solution solution = new LC300().new Solution();
         // TO TEST
-<<<<<<< HEAD
-        int[] nums = {10,9,2,5,3,7,101,18};
+        int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
         System.out.println(solution.lengthOfLIS(nums));
     }
 
-    //leetcode submit region begin(Prohibit modification and deletion)
-    class Solution {
-        public int lengthOfLIS(int[] nums) {
-=======
-            System.out.println(solution.lengthOfLIS(new int[]{10,9,2,5,3,7,101,18}));
-        }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
@@ -54,7 +47,7 @@ class LC300{
                 }
                 tails[i] = num;
                 if (res == j) {
-                    res ++;
+                    res++;
                 }
             }
             return res;
@@ -63,13 +56,12 @@ class LC300{
         // dp[i]  该点的最大子序列长度
         // 转移方程 每个点，检查前面比自己小的点，选出其中dp最大的
         public int lengthOfLIS01(int[] nums) {
->>>>>>> 920fa5035e9a7079668ef94b3e7c23dd50328c17
             if (nums.length == 0) {
                 return 0;
             }
             int[] dp = new int[nums.length];
             dp[0] = 1;
-<<<<<<< HEAD
+
             int maxs = 1;
             for (int i = 0; i < dp.length; i++) {
                 int max = 0;
@@ -82,26 +74,8 @@ class LC300{
                 maxs = Math.max(maxs, dp[i]);
             }
             return maxs;
-=======
-            int maxrst = 1;
-            for (int i = 1; i < nums.length; i++) {
-                int maxval = 0;
-                for (int j = 0; j < i; j++) {
-                    if (nums[i] > nums[j]) {
-                        maxval = Math.max(maxval, dp[j]);
-                    }
-                }
-                dp[i] = maxval + 1;
-                maxrst = Math.max(maxrst, dp[i]);
-            }
-            return maxrst;
->>>>>>> 920fa5035e9a7079668ef94b3e7c23dd50328c17
+
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
-
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 920fa5035e9a7079668ef94b3e7c23dd50328c17
