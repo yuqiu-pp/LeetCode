@@ -22,6 +22,7 @@ class LC300{
     public static void main(String[] args) {
         Solution solution = new LC300().new Solution();
         // TO TEST
+<<<<<<< HEAD
         int[] nums = {10,9,2,5,3,7,101,18};
         System.out.println(solution.lengthOfLIS(nums));
     }
@@ -29,11 +30,46 @@ class LC300{
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int lengthOfLIS(int[] nums) {
+=======
+            System.out.println(solution.lengthOfLIS(new int[]{10,9,2,5,3,7,101,18}));
+        }
+
+    //leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        // tails[k] 的值代表 长度为k+1子序列 的尾部元素值。因为递增越慢长度会越长
+        // 状态转移 每次选最小的去更新tail最后元素
+        public int lengthOfLIS(int[] nums) {
+            int[] tails = new int[nums.length];
+            int res = 0;
+            for (int num : nums) {
+                int i = 0;
+                int j = res;
+                while (i < j) {
+                    int m = i + (j - i) / 2;
+                    if (tails[m] < num) {
+                        i = m + 1;
+                    } else {
+                        j = m;
+                    }
+                }
+                tails[i] = num;
+                if (res == j) {
+                    res ++;
+                }
+            }
+            return res;
+        }
+
+        // dp[i]  该点的最大子序列长度
+        // 转移方程 每个点，检查前面比自己小的点，选出其中dp最大的
+        public int lengthOfLIS01(int[] nums) {
+>>>>>>> 920fa5035e9a7079668ef94b3e7c23dd50328c17
             if (nums.length == 0) {
                 return 0;
             }
             int[] dp = new int[nums.length];
             dp[0] = 1;
+<<<<<<< HEAD
             int maxs = 1;
             for (int i = 0; i < dp.length; i++) {
                 int max = 0;
@@ -46,8 +82,26 @@ class LC300{
                 maxs = Math.max(maxs, dp[i]);
             }
             return maxs;
+=======
+            int maxrst = 1;
+            for (int i = 1; i < nums.length; i++) {
+                int maxval = 0;
+                for (int j = 0; j < i; j++) {
+                    if (nums[i] > nums[j]) {
+                        maxval = Math.max(maxval, dp[j]);
+                    }
+                }
+                dp[i] = maxval + 1;
+                maxrst = Math.max(maxrst, dp[i]);
+            }
+            return maxrst;
+>>>>>>> 920fa5035e9a7079668ef94b3e7c23dd50328c17
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 920fa5035e9a7079668ef94b3e7c23dd50328c17
