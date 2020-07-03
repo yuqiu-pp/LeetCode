@@ -60,6 +60,7 @@ class LC37{
                             // char tmp = board[i][j];
                             // board[i][j] = c;
                             // Arrays.asList(board[row]).forEach(System.out::println);
+                            // 将c作为参数传入，
                             if(isValid(board, i, j, c)) {
                                 board[i][j] = c;
                                 if (backtrack(i, board)) {

@@ -56,8 +56,109 @@ class LC127{
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         List<String> res = new ArrayList<>();
-        // 双向BFS：每次遍历一层时，从节点更少的一端遍历。并不是真正的每次都都从两端各走一次
+        // BFS
         public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+            if (wordList == null || wordList.size() == 0 || !wordList.contains(endWord)) {
+                return 0;
+            }
+            Set<String> wordSet = new HashSet<>(wordList);
+            Queue<String> queue = new LinkedList<>();
+            Set<String> visited = new HashSet<>();
+            queue.offer(beginWord);
+            int res = 0;
+            while (!queue.isEmpty()) {
+                res ++;
+                int n = queue.size();
+                // 处理每个word
+                for (int i = 0; i < n; i++) {
+                    String word = queue.poll();
+                    char[] chars = word.toCharArray();
+                    // 替换每一位
+                    for (int j = 0; j < chars.length; j++) {
+                        char ch = chars[j];
+                        for (char c = 'a'; c <= 'z'; c++) {
+                            chars[j] = c;
+                            String s = String.valueOf(chars);
+                            if (visited.contains(s)) {
+                                continue;
+                            }
+                            if (s.equals(endWord)) {
+                                return res + 1;
+                            }
+                            if (wordSet.contains(s)) {
+                                visited.add(s);
+                                queue.offer(s);
+                            }
+                        }
+                        chars[j] = ch;
+                    }
+                }
+            }
+            return 0;
+        }
+
+        // 双端 BFS
+        public int ladderLength05(String beginWord, String endWord, List<String> wordList) {
+            if (wordList == null || wordList.size() == 0 || !wordList.contains(endWord)) {
+                return 0;
+            }
+            Set<String> wordSet = new HashSet<>(wordList);
+            wordSet.add(beginWord);
+
+            Queue<String> queue1 = new LinkedList<>();
+            Queue<String> queue2 = new LinkedList<>();
+            Set<String> visited1 = new HashSet<>();
+            Set<String> visited2 = new HashSet<>();
+            queue1.add(beginWord);
+            queue2.add(endWord);
+            visited1.add(beginWord);
+            visited2.add(endWord);
+            int res = 0;
+            while (!queue1.isEmpty() && !queue2.isEmpty()) {
+                res ++;
+                // 每次从长度短的队列
+                if (queue1.size() > queue2.size()) {
+                    Queue<String> queue = queue1;
+                    queue1 = queue2;
+                    queue2 = queue;
+                    Set<String> set = visited1;
+                    visited1 = visited2;
+                    visited2 = set;
+                }
+                // 处理队列中每个String
+                int size = queue1.size();
+                while (size-- > 0) {
+                    char[] chars = queue1.poll().toCharArray();
+                    for (int i = 0; i < chars.length; i++) {
+                        char c = chars[i];
+                        for (char ch = 'a'; ch < 'z'; ch++) {
+                            chars[i] = ch;
+                            String s = String.valueOf(chars);
+                            if (visited1.contains(s)) {
+                                continue;
+                            }
+                            // 两端重合了
+                            if (visited2.contains(s)) {
+                                return res + 1;
+                            }
+                            // 标记已访问，并入队
+                            if (wordSet.contains(s)) {
+                                visited1.add(s);
+                                queue1.offer(s);
+                            }
+
+                        }
+                        chars[i] = c;
+                    }
+                }
+            }
+            return 0;
+        }
+
+
+
+        // 双向BFS：每次遍历一层时，从节点更少的一端遍历。并不是真正的每次都都从两端各走一次
+        public int ladderLength04(String beginWord, String endWord, List<String> wordList) {
             if (wordList == null || !wordList.contains(endWord)) {
                 return 0;
             }

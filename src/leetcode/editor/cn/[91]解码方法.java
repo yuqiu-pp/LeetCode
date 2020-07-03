@@ -29,11 +29,16 @@ class LC91{
     public static void main(String[] args) {
         Solution solution = new LC91().new Solution();
         // TO TEST
-        System.out.println(solution.numDecodings("27"));
+        System.out.println(solution.numDecodings("10"));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // 状态 dp[i]: 到每个数字时的编码总数
+        // 转移 ：如果[i]!=0，不增加解码数量， dp[i]=dp[i-1]
+        //       接下来看[i]和[i-1] 是否可以组合进行解码，如果可以会增加解码数量，dp[i]+=dp[i-2]
+
+
         // 与爬楼梯类似，f(n)=f(n-1)+f(n-2)，多了限制条件
 
         // dp[i]： s[i]结尾的子串解密方法
