@@ -25,15 +25,41 @@
 
 package leetcode.editor.cn;
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
+
 class LC91{
     public static void main(String[] args) {
         Solution solution = new LC91().new Solution();
         // TO TEST
-        System.out.println(solution.numDecodings("10"));
+        System.out.println(solution.numDecodings("0"));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // dp[i]  到每个数字的最多解码数量
+        // 转移方程  s[i]=0，它不会影响解码数量，dp[i] = dp[i-1]
+        //          s[i]不能和s[i-1]组成可编码的两位数，它不会影响解码数量，dp[i] = dp[i-1]
+        //              能组成，解码方法变为总数 =  dp[i] + dp[i-2]
+        public int numDecodings(String s) {
+            if (s == null || s.length() == 0) {
+                return 0;
+            }
+            int[] dp = new int[s.length()];
+            char[] chars = s.toCharArray();
+            dp[0] = chars[0] == '0' ? 0 : 1;
+            for (int i = 1; i < s.length(); i++) {
+                if (chars[i] != '0') {
+                    dp[i] = dp[i - 1];
+                }
+                int num = (chars[i - 1] - '0') * 10 + (chars[i] - '0');
+                if (num >= 10 && num <= 26) {
+                    dp[i] += i == 1 ? 1 :  dp[i - 2];
+                }
+            }
+            return dp[s.length() - 1];
+        }
+
+
         // 状态 dp[i]: 到每个数字时的编码总数
         // 转移 ：如果[i]!=0，不增加解码数量， dp[i]=dp[i-1]
         //       接下来看[i]和[i-1] 是否可以组合进行解码，如果可以会增加解码数量，dp[i]+=dp[i-2]
@@ -44,7 +70,7 @@ class LC91{
         // dp[i]： s[i]结尾的子串解密方法
         // 状态转移：dp[i] = dp[i - 1]   if s[i] != '0'
         // dp[i] += dp[i - 2]           if 10 <= int(s[i - 1..i]) <= 26
-        public int numDecodings(String s) {
+        public int numDecodings01(String s) {
             int len = s.length();
             if (len == 0 || s.charAt(0) == '0') {
                 return 0;
