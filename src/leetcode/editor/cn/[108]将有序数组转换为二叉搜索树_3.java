@@ -37,10 +37,26 @@ class LC108{
      * }
      */
     class Solution {
+        // 每次选mid作为root，然后左右两半都是重复过程
+        public TreeNode sortedArrayToBST(int[] nums) {
+            return helper(nums, 0, nums.length - 1);
+        }
+        private TreeNode helperr(int[] nums, int l, int r) {
+            if (l > r) {
+                return null;
+            }
+            int mid = l + (r - l) / 2;
+            TreeNode node = new TreeNode(nums[mid]);
+            node.left = helperr(nums, l, mid - 1);
+            node.right = helperr(nums, mid + 1, r);
+            return node;
+        }
+
+
         // 二叉搜索树的中序遍历得到是有序数组
         // 每次取mid作为root，保持左右子树平衡
         // 重复子问题：取mid作为root后，左右都是相同的操作，递归
-        public TreeNode sortedArrayToBST(int[] nums) {
+        public TreeNode sortedArrayToBST02(int[] nums) {
             return recur(nums, 0, nums.length - 1);
         }
         private TreeNode recur(int[] nums, int left, int right) {
