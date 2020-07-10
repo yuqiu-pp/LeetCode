@@ -17,8 +17,6 @@
 
 package leetcode.editor.cn;
 
-import com.sun.org.apache.bcel.internal.generic.DDIV;
-
 import java.util.Stack;
 
 class LC32{

@@ -17,9 +17,11 @@
 
 package leetcode.editor.cn;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import com.sun.tools.corba.se.idl.toJavaPortable.Helper;
+
+import java.util.*;
+
+import static java.util.stream.Collectors.toList;
 
 class LC22{
     public static void main(String[] args) {
@@ -30,9 +32,32 @@ class LC22{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // n个格子 往里面填数  回溯
+        List<String> res = new ArrayList<>();
+        public List<String> generateParenthesis(int n) {
+            helper(n * 2, 0, 0, "");
+            return res;
+        }
+        // k 层数,  m 左括号数量
+        private void helper(int n, int k, int m, String curr) {
+            if (n == k) {
+                res.add(curr);
+                return;
+            }
+            // 当前层：选一个括号放入
+            if (m < n / 2) {
+                helper(n, k + 1, m + 1, curr + '(');
+            }
+            // 右括号数量小于左括号
+            if (m > k - m) {
+                helper(n, k + 1, m, curr + ')');
+            }
+        }
+
+
         // 括号合法性：（ 随便加，不超数量即可； ）只有左括号数量大于右括号
         // 放一个（，剩下n-1个位置递归的放
-        public List<String> generateParenthesis(int n) {
+        public List<String> generateParenthesis03(int n) {
             List<String> res = new ArrayList<>();
             bfs(n, 0, 0, "", res);
             return res;

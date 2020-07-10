@@ -25,22 +25,61 @@
 
 package leetcode.editor.cn;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
 
 class LC91{
     public static void main(String[] args) {
         Solution solution = new LC91().new Solution();
         // TO TEST
-        System.out.println(solution.numDecodings("0"));
+        System.out.println(solution.numDecodings("100"));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         // dp[i]  到每个数字的最多解码数量
+        // 方程
+        // 如果s[i] = 0，只能和s[i-1]拼起来解码. 如果能拼 dp[i]=dp[i-2]
+        // 如果s[i] != 0, 独立解码，不会增加解码数量，d[i] = d[i-1]
+        //               且能和s[i-1]拼起来解码，会增加解码数量，此时dp[i]由两部分组成，dp[i-1]+dp[i-2]
+        public int numDecodings(String s) {
+            if (s == null || s.length() == 0) {
+                return 0;
+            }
+            int len = s.length();
+            char[] chars = s.toCharArray();
+            int[] dp = new int[len];
+            dp[0] = chars[0] == '0' ? 0 : 1;
+            for (int i = 1; i < len; i++) {
+                // if (chars[i] == '0') {
+                    // int num = (chars[i - 1] - '0') * 10 + (chars[i] - '0');
+                    // if (num >= 10 && num <= 26) {
+                    //     dp[i] += i < 2 ? dp[0] : dp[i - 2];
+                    // }
+                // } else {
+                //     dp[i] = dp[i - 1];
+                    // int num = (chars[i - 1] - '0') * 10 + (chars[i] - '0');
+                    // if (num >= 10 && num <= 26) {
+                    //     dp[i] += i < 2 ? dp[0] : dp[i - 2];
+                    // }
+                // }
+                // 代码优化  1.判断是否可以拼起来解码 提取出来
+                //          2.if else 合并成 一个if
+                if (chars[i] != 0) {
+                    dp[i] = dp[i - 1];
+                }
+                int num = (chars[i - 1] - '0') * 10 + (chars[i] - '0');
+                if (num >= 10 && num <= 26) {
+                    dp[i] += i < 2 ? dp[0] : dp[i - 2];
+                }
+            }
+            return dp[len - 1];
+        }
+
+
+        // dp[i]  到每个数字的最多解码数量
         // 转移方程  s[i]=0，它不会影响解码数量，dp[i] = dp[i-1]
         //          s[i]不能和s[i-1]组成可编码的两位数，它不会影响解码数量，dp[i] = dp[i-1]
         //              能组成，解码方法变为总数 =  dp[i] + dp[i-2]
-        public int numDecodings(String s) {
+        public int numDecodings02(String s) {
             if (s == null || s.length() == 0) {
                 return 0;
             }
