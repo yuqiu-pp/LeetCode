@@ -53,6 +53,28 @@ class LC120{
             if (triangle.size() == 0) {
                 return 0;
             }
+            // int n = triangle.get(triangle.size() - 1).size();
+            // 优化: 三角形特点，每行增加一个   n = triangle.size()
+            int n = triangle.size();
+            int[] dp = new int[n];
+            for (int i = 0; i < n; i++) {
+                dp[i] = triangle.get(n - 1).get(i);
+            }
+
+            for (int i = n - 2; i >= 0; i--) {
+                // for (int j = 0; j < triangle.get(i).size(); j++) {
+                // 优化： 每行元素个数 = 行数+1，所以这里用i就可以
+                for (int j = 0; j <= i; j++) {
+                    dp[j] = Math.min(dp[j], dp[j+1]) + triangle.get(i).get(j);
+                }
+            }
+            return dp[0];
+        }
+
+        public int minimumTotal02(List<List<Integer>> triangle) {
+            if (triangle.size() == 0) {
+                return 0;
+            }
             int len = triangle.size();
             int[] dp = new int[len];
 
