@@ -20,32 +20,32 @@ class LC309{
     public static void main(String[] args) {
         Solution solution = new LC309().new Solution();
         // TO TEST
-        int[] prices = {1,2,3,0,2};
+        int[] prices = {3,3};
         System.out.println(solution.maxProfit(prices));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        // 买 0 两条路径 前两天的冻结、前一天买的状态不变  dp[i][0] = max(dp[i][2]-s[i], dp[i-1])
-        // 卖 1 前一天的买 dp[i][1] = dp[i][0] + s[i]
-        // 冻 2 前一天的卖 dp[i][2] = dp[i][1]
+        // 买 0 两条路径 前两天的冻结、前一天买的状态不变  dp[i][0] = max(dp[i-1][2]-s[i], dp[i-1][0])
+        // 卖 1 前一天的买 dp[i][1] = max(dp[i][0] + s[i], dp[i-1][1]
+        // 冻 2 前一天的卖 dp[i][2] = dp[i-1][1]
         public int maxProfit(int[] prices) {
+            if (prices.length == 0) {
+                return 0;
+            }
             int[][] dp = new int[prices.length][3];
             dp[0][0] = 0 - prices[0];
             dp[0][1] = 0;
             dp[0][2] = 0;
             for (int i = 1; i < prices.length; i++) {
-                if (i >= 2) {
-                    dp[i][0] = Math.max(dp[i-2][2] - prices[i], dp[i-1][0]);
-                } else {
-                    dp[i][0] = Math.max(dp[0][2] - prices[i], dp[i-1][0]);
-                }
-
-                dp[i][1] = dp[i-1][0] + prices[i];
-                dp[i][2] = Math.max(dp[i-1][1], dp[i-1][2]);
+                dp[i][0] = Math.max(dp[i-1][2] - prices[i], dp[i-1][0]);
+                dp[i][1] = Math.max(dp[i-1][0] + prices[i], dp[i-1][1]);
+                dp[i][2] = dp[i-1][1];
             }
             int n = prices.length;
-            return Math.max(dp[n - 1][0], Math.max(dp[n - 1][1], dp[n - 1][2]));
+            // return Math.max(dp[n - 1][0], Math.max(dp[n - 1][1], dp[n - 1][2]));
+            // 最后一天持股没意义，所以从另外两种情况中选择即可
+            return Math.max(dp[n - 1][1], dp[n - 1][2]);
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
