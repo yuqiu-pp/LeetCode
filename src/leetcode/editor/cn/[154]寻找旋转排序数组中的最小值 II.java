@@ -35,6 +35,11 @@ class LC154{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // 为什么选r进行比较，而不能用l
+        // m=2 时，有 numbers[m] > numbers[i] ，如下所示，不能确定最小值一定在那侧
+        // numbers=[1,2,3,4,5]   l在，
+        // numbers=[3,4,5,1,2]   l不在
+        // 因为 r 值肯定在最小值所在的有序数组中最大值,所以当==时，r--
         public int findMin(int[] numbers) {
             int len = numbers.length;
             int l = 0;
@@ -42,15 +47,15 @@ class LC154{
             int mid = 0;
             while(l < r) {
                 mid = l + (r - l) / 2;
-                if (numbers[l] > numbers[mid]) {
+                if (numbers[r] > numbers[mid]) {
                     r = mid;
                 } else if (numbers[r] < numbers[mid]) {
                     l = mid + 1;
                 } else {
-                    l ++;
+                    r --;
                 }
             }
-            return numbers[mid];
+            return numbers[l];
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
