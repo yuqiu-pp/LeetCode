@@ -64,33 +64,33 @@ class Solution {
     // List<TreeNode> res = new ArrayList<>();
 
     public List<TreeNode> generateTrees(int n) {
-        if (n == 0) {
-            return res;
+        if (n < 1) {
+            return new ArrayList<>();
         }
-        if (n == 1) {
-            res.add(new TreeNode(n));
-            return res;
-        }
-        helper(1, n);
-        for (TreeNode re : res) {
-
-        }
-
-        return res;
+        return helper(1, n);
     }
     // 回溯
-    private TreeNode helper(int left, int right) {
-        // List<TreeNode> res
+    private List<TreeNode> helper(int left, int right) {
+        List<TreeNode> res = new ArrayList<>();
+
         if (left > right) {
-            return null;
+            res.add(null);
+            return res;
         }
         for (int i = left; i <= right; i++) {
-            TreeNode node = new TreeNode(i);
-            node.left = helper(left, i - 1);
-            node.right = helper(i + 1, right);
-            res.add(node);
+            List<TreeNode> leftNode = helper(left, i - 1);
+            List<TreeNode> rightNode = helper(i + 1, right);
+            for (TreeNode l : leftNode) {
+                for (TreeNode r : rightNode) {
+                    TreeNode node = new TreeNode(i);
+                    node.left = l;
+                    node.right = r;
+                    res.add(node);
+                }
+            }
+
         }
-        return null;
+        return res;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

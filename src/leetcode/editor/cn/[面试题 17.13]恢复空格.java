@@ -31,9 +31,9 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-class LC1713{
+class LC17131 {
     public static void main(String[] args) {
-        Solution solution = new LC1713().new Solution();
+        Solution solution = new LC17131().new Solution();
         // TO TEST
         String[] dictionary = {"looked","just","like","her","brother"};
         String sentence = "jesslookedjustliketimherbrother";
