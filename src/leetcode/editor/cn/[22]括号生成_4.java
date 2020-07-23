@@ -17,11 +17,9 @@
 
 package leetcode.editor.cn;
 
-import com.sun.tools.corba.se.idl.toJavaPortable.Helper;
 
 import java.util.*;
 
-import static java.util.stream.Collectors.toList;
 
 class LC22{
     public static void main(String[] args) {
