@@ -19,6 +19,7 @@
 
 package leetcode.editor.cn;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import sun.security.util.Length;
 
 import java.time.Year;
@@ -32,14 +33,72 @@ class LC15{
         int[] nums = {-1, 0, 1, 2, -1, -4};
         System.out.println(solution.threeSum(nums));
     }
-    
+
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // 三层循环，暴力会超时
+        // a + b + c = 0  转化为  c + b = -a 即两数求和，用双指针  需要数组有序
+        public List<List<Integer>> threeSum(int[] nums) {
+            // Set<List<Integer>> res = new HashSet<>();
+            int len = nums.length;
+            Arrays.sort(nums);
+            // 优化：因为排序过，且相同值都会跳过，所以可以不用Set，直接用List
+            List<List<Integer>> res = new ArrayList<>();
+
+            // 三数和为0，如果排序后的第一个元素大于0，则无解   由44ms提升到42ms
+            if (len == 0 || nums[0] > 0) {
+                // return new ArrayList<>(res);
+                return res;
+            }
+
+            for (int i = 0; i < len - 2; i++) {
+                // 优化：相同值跳过  42ms 提升到 25ms
+                if (i > 0 && nums[i] == nums[i-1]) {
+                    continue;
+                }
+                // 后面的按两数之和算
+                int a = - nums[i];
+                int l = i + 1;
+                int r = len - 1;
+                while (l < r) {
+                    int sum = nums[l] + nums[r];
+                    if (sum == a) {
+                        res.add(Arrays.asList(nums[i], nums[l], nums[r]));
+                        // 	596 ms
+                        // l ++;
+                        // r --;
+                        // 优化，这样处理时间比较长，因为l++后数据可能有重复的，可以直接跳过  44ms
+                        while(l < r && nums[l] == nums[l + 1]) {
+                            l ++;
+                        }
+                        l ++;
+                        while (l < r && nums[r] == nums[r - 1]) {
+                            r --;
+                        }
+                        r --;
+                    }
+                    else if (sum > a) {
+                        r --;
+                    } else {
+                        l ++;
+                    }
+                    // 优化：连续小于sum的数也可以直接跳过   基本没有缩短时间，差别不大，这步不做逻辑更清楚
+                    // while (l < r && nums[l] + nums[r] > a) {
+                    //     r --;
+                    // }
+                    // while (l < r && nums[l] + nums[r] < a) {
+                    //     l ++;
+                    // }
+                }
+            }
+            // return new ArrayList<>(res);
+            return res;
+        }
 
         // 3层循环：注意每层循环的结束条件
         // 转化为两数之和：a+b = -c，就容易想起用hash表处理了. 但重复数据怎么办？排重？
         // 双指针：首先要排序，然后双指针。确定一个值，然后后面的数据从两边往中间靠。和大于0，大端往减小的方向移动；和小于0，小端往增大方向移动
-        public List<List<Integer>> threeSum(int[] nums) {
+        public List<List<Integer>> threeSum04(int[] nums) {
             Arrays.sort(nums);
             List<List<Integer>> res = new ArrayList<>();
             for (int i = 0; i < nums.length - 2; i++) {
@@ -157,7 +216,7 @@ class LC15{
             Set<List<Integer>> res = new HashSet<>();
             Arrays.sort(nums);
             for (int i = 0; i < len-2; i++) { // 注意结束条件
-                for (int j = i+1; j < len-1; j++) {
+                for (int j = i+1; j < len-1; j++) { // 注意起始条件
                     for (int k = j+1; k < len; k++) {
                         // 直接最里层判断3数的和，避免维护sum的状态
                         if (nums[i] + nums[j] + nums[k] == 0) {
