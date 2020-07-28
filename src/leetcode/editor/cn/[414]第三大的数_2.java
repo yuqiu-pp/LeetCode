@@ -34,7 +34,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 
@@ -42,14 +41,41 @@ class LC414{
     public static void main(String[] args) {
         Solution solution = new LC414().new Solution();
         // TO TEST
-        System.out.println(solution.thirdMax(new int[]{3, 2, 1}));
+        System.out.println(solution.thirdMax(new int[]{1,2,2,5,3,5}));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        public int thirdMax(int[] nums) {
+            //
+            PriorityQueue<Integer> queue = new PriorityQueue<>();
+            HashSet<Integer> set = new HashSet<>();
+            int max = 0;
+            for (int i = 0; i < nums.length; i++) {
+                if (set.contains(nums[i])) {
+                    continue;
+                }
+                if (queue.size() < 3) {
+                    queue.add(nums[i]);
+                    max = Math.max(max, nums[i]);
+                } else {
+                    if (queue.peek() < nums[i]) {
+                        queue.poll();
+                        queue.add(nums[i]);
+                    }
+                }
+                set.add(nums[i]);
+            }
+            if (queue.size() == 3) {
+                max = queue.poll();
+            }
+            return max;
+        }
+
+
         // 小顶堆 比堆顶大，入堆
         // 利用set排重
-        public int thirdMax(int[] nums) {
+        public int thirdMax01(int[] nums) {
             if (nums.length < 2) {
                 return nums[0];
             }
