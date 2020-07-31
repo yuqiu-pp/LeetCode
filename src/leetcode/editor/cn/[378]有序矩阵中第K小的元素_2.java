@@ -23,9 +23,7 @@
 
 package leetcode.editor.cn;
 
-import java.util.Collections;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 class LC378{
     public static void main(String[] args) {
@@ -39,10 +37,45 @@ class LC378{
         System.out.println(solution.kthSmallest(matrix, 8));
     }
 
+    // 默认构造方法：PriorityQueue() 根据其自然顺序对元素进行排序
+    // PriorityQueue(Comparator<? super E> comparator) Comparator可以是对象.val  (node1, node2) -> node2.val - node1.val
+
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        // 堆排序
+        // 第K小  大顶堆  比堆顶小，则入堆
+        // 按题意，不需要排重
+
         public int kthSmallest(int[][] matrix, int k) {
+            Queue<Integer> queue = new PriorityQueue<>((a, b) -> b - a);
+            Set<Integer> set = new HashSet<>();
+            // 遍历
+            int m = matrix.length;
+            int n = matrix[0].length;
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    // if (set.contains(matrix[i][j])) {
+                    //     continue;
+                    // }
+                    if (queue.size() < k) {
+                        queue.offer(matrix[i][j]);
+                    } else {
+                        if (matrix[i][j] < queue.peek()) {
+                            queue.poll();
+                            queue.offer(matrix[i][j]);
+                        }
+                    }
+                    // set.add(matrix[i][j]);
+                }
+            }
+            // while (!queue.isEmpty()) {
+            //     System.out.println(queue.poll());
+            // }
+            return queue.poll();
+        }
+
+
+        // 堆排序
+        public int kthSmallest02(int[][] matrix, int k) {
             Queue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
             int n = matrix.length;
             for (int i = 0; i < n; i++) {
