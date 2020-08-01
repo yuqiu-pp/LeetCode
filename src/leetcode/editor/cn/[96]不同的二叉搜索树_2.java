@@ -17,13 +17,12 @@
 package leetcode.editor.cn;
 
 import java.util.HashMap;
-import java.util.Map;
 
 class LC96{
     public static void main(String[] args) {
         Solution solution = new LC96().new Solution();
         // TO TEST
-        System.out.println(solution.numTrees01(7));
+        System.out.println(solution.numTrees(3));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)

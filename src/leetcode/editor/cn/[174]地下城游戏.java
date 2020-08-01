@@ -60,13 +60,38 @@ class LC174{
     class Solution {
         // 抽象：启点到终点 路径和的最小值
         // 与m * n题类似
+        public int calculateMinimumHP(int[][] dungeon) {
+            if (dungeon == null || dungeon.length == 0) {
+                return 0;
+            }
+            int rows = dungeon.length;
+            int cols = dungeon[0].length;
+            int[][] dp = new int[rows][cols];
+            // 终点时剩余1时，那么起点需要的值最小
+            dp[rows - 1][cols - 1] = Math.max(1 - dungeon[rows - 1][cols - 1], 1);
+            // 处理 边
+            for (int i = rows - 2; i >= 0; i--) {
+                dp[i][cols - 1] = Math.max(dp[i + 1][cols - 1] - dungeon[i][cols - 1], 1);
+            }
+            for (int i = cols - 2; i >= 0; i--) {
+                dp[rows - 1][i] = Math.max(dp[rows - 1][i + 1] - dungeon[rows - 1][i], 1);
+            }
+            //
+            for (int i = rows - 2; i >= 0 ; i--) {
+                for (int j = cols - 2; j >= 0 ; j--) {
+                    // 用max，因为要通过点，血必须够用
+                    dp[i][j] = Math.max(Math.min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j], 1);
+                }
+            }
+            return dp[0][0];
+        }
 
         // dp[i][j] 表示从坐标 (i,j)到终点所需的最小初始值
         // 要能通过格子，则 dp - dungeon > 0，且dp至少为1，所以dp = max(dp - dungeon, 1)
         // 点分两类：边界上的点，来源只有一个方向
         //          其它点两个来源， dp[i + 1][j], dp[i][j+1]) ，要取min
         // dp[i][j] = max(min(dp[i + 1][j], dp[i][j+1]), 1)
-        public int calculateMinimumHP(int[][] dungeon) {
+        public int calculateMinimumHP02(int[][] dungeon) {
             if (dungeon.length == 0 || dungeon[0].length == 0) {
                 return 0;
             }

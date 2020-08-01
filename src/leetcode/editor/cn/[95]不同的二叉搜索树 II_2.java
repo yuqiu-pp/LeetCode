@@ -67,8 +67,31 @@ class Solution {
         if (n < 1) {
             return new ArrayList<>();
         }
-        return helper(1, n);
+        return helper01(1, n);
     }
+    private List<TreeNode> helper01(int left, int right) {
+        List<TreeNode> res = new ArrayList<>();
+        if (left > right) {
+            res.add(null);
+            return res;
+        }
+        for (int i = left; i <= right; i++) {
+            List<TreeNode> llist = helper01(left, i - 1);
+            List<TreeNode> rlist = helper01(i + 1, right);
+            // 从左右分别选点
+            for (TreeNode l : llist) {
+                for (TreeNode r : rlist) {
+                    TreeNode node = new TreeNode(i);
+                    node.left = l;
+                    node.right = r;
+                    res.add(node);
+                }
+            }
+        }
+        return res;
+    }
+
+
     // 回溯
     private List<TreeNode> helper(int left, int right) {
         List<TreeNode> res = new ArrayList<>();
