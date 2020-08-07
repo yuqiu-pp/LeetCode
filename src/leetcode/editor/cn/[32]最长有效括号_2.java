@@ -28,12 +28,21 @@ class LC32{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        public int longestValidParentheses(String s) {
+
+            return 0;
+        }
+
+
+
+
+
         // s[i]=左  dp[i] = dp[i-1]
         // s[i]=右  如果s[i-1]=左，有效括号   dp[i]=dp[i-2]+2
         //          如果s[i-1]=右，要找是否有匹配的左括号，如何找？
         //  dp[i-1]是s[i-1]位置的有效括号数，跳过它，如果前面s[i-len-1]=左，则匹配, dp[i]=dp[i-len-2]+2
         //                                                             否则，dp[i]=dp[i-1]
-        public int longestValidParentheses(String s) {
+        public int longestValidParentheses04(String s) {
             if (s == null || s.length() == 0) {
                 return 0;
             }
