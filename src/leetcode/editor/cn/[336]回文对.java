@@ -54,7 +54,7 @@ class PL336{
                         }
                     }
                 }
-                //
+                // 右前缀
                 for (int j = 0; j < curr.length(); j++) {
                     if (isPalindrome(curr, j, curr.length() - 1)) {
                         String sub = curr.substring(0, j);

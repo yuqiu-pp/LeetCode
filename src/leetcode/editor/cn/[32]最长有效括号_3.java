@@ -23,17 +23,38 @@ class LC32{
     public static void main(String[] args) {
         Solution solution = new LC32().new Solution();
         // TO TEST
-        System.out.println(solution.longestValidParentheses("()(()"));
+        System.out.println(solution.longestValidParentheses("(()())"));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // 合法括号 左右数量匹配，且符合规则
+        // dp[i] 当前位置时，最长有效括号长度
+        // 当 ( 结尾时，非法字符串，所以dp[i] = 0   这里要注意，关键点，决定后面的方程
+        // 当 ) 结尾时，如果前面是(，即 ()，dp[i] = dp[i - 2] + 2;
+        //             如果前面是)，即 ))，dp[i]是否增加取决于 它是否能与前面的( 构成合法结构dp[i] = dp[i - 1] + 2  + 之前有效的长度
+        // 如何判断前面是否有对应的( ?
+        // 通过第一个)，它的dp[i-1]是最长有效括号，在这个最长有效括号前面如果是(，则合法结构，
         public int longestValidParentheses(String s) {
-
-            return 0;
+            if (s.length() == 0) {
+                return 0;
+            }
+            char[] chars = s.toCharArray();
+            int[] dp = new int[s.length()];
+            dp[0] = 0;
+            int max = 0;
+            for (int i = 1; i < chars.length; i++) {
+                if (chars[i] == ')') {
+                    if (chars[i - 1] == '(') {
+                        dp[i] = (i - 2) >= 0 ? dp[i - 2] + 2 : 2;
+                    } else if ((i - 1 - dp[i - 1]) >= 0 && chars[i - 1 - dp[i - 1]] == '(') {
+                        dp[i] = dp[i - 1]  + 2 + (i - dp[i - 1] >= 2 ? dp[i - 1 - dp[i - 1] - 1] : 0);
+                    }
+                }
+                max = Math.max(max, dp[i]);
+            }
+            return max;
         }
-
-
 
 
 
