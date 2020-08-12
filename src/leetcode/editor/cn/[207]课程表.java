@@ -45,8 +45,31 @@ class LC207{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        // 判断有向无环图
+
         public boolean canFinish(int numCourses, int[][] prerequisites) {
+            // 有向图
+            ArrayList[] graph = new ArrayList[numCourses];
+            for (int i = 0; i < numCourses; i++) {
+                graph[i] = new ArrayList<Integer>();
+            }
+            // 每门课的入度
+            int[] degree = new int[numCourses];
+            for (int i = 0; i < numCourses; i++) {
+                degree[prerequisites[i][0]] ++;
+                graph[prerequisites[i][0]].add(prerequisites[i][1]);
+            }
+            // 入度为0的课入队列
+            Queue<Integer> queue = new LinkedList<>();
+            for (int i = 0; i < numCourses; i++) {
+                if (degree[i] == 0) {
+                    queue.offer(i);
+                }
+            }
+        }
+
+
+        // 判断有向无环图
+        public boolean canFinish01(int numCourses, int[][] prerequisites) {
             // 邻接表
             ArrayList[] graph = new ArrayList[numCourses];
             for (int i = 0; i < numCourses; i++) {
