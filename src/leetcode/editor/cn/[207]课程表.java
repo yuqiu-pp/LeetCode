@@ -54,9 +54,13 @@ class LC207{
             }
             // 每门课的入度
             int[] degree = new int[numCourses];
-            for (int i = 0; i < numCourses; i++) {
-                degree[prerequisites[i][0]] ++;
-                graph[prerequisites[i][0]].add(prerequisites[i][1]);
+            // for (int i = 0; i < numCourses; i++) {
+            //     degree[prerequisites[i][0]] ++;
+            //     graph[prerequisites[i][0]].add(prerequisites[i][1]);
+            // }
+            for (int[] prerequisite : prerequisites) {
+                degree[prerequisite[0]] ++;
+                graph[prerequisite[1]].add(prerequisite[0]);
             }
             // 入度为0的课入队列
             Queue<Integer> queue = new LinkedList<>();
@@ -65,6 +69,17 @@ class LC207{
                     queue.offer(i);
                 }
             }
+            numCourses -= queue.size();
+            // 将队列中入度为0的课摘除，同时将关联课的入度减1
+            while (!queue.isEmpty()){
+                int n = queue.poll();
+                for (int i = 0; i < graph[n].size(); i++) {
+                    if (-- degree[(int)graph[n].get(i)] == 0) {
+                        queue.offer((int)graph[n].get(i));
+                    }
+                }
+            }
+            return numCourses == 0;
         }
 
 

@@ -41,12 +41,42 @@ class LC1713{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // dp[i] 当前字符位置，不合法字符数量
+        // 方程  有两种情况：dp[i] = dp[i-1] + 1, 没有合法单词(包含当前字符)
+        //                 dp[i] = dp[i-1] + 1 - word.len, 判断单词的方法 0->i依次减少一个字符，查看是否在dict中
+        // 取其中的最小值
+        public int respace(String[] dictionary, String sentence){
+            if (sentence.length() == 0) {
+                return 0;
+            }
+            HashSet<String> dict = new HashSet<>();
+            for (int i = 0; i < dictionary.length; i++) {
+                dict.add(dictionary[i]);
+            }
+
+            int dp[] = new int[sentence.length()];
+            dp[0] = 1;
+
+            for (int i = 1; i < sentence.length(); i++) {
+                dp[i] = dp[i - 1] + 1;
+                for (int j = 0; j <= i; j++) {
+                    String word = sentence.substring(j, i + 1);
+                    if (dict.contains(word)) {
+                        dp[i] = Math.min(dp[i], dp[j - 1]);
+                    }
+                }
+
+            }
+            return dp[sentence.length() - 1];
+        }
+
+
         // dp[i] 当前字符i前，有多少个不构成单词的字母。  注意，不包含当前字符i
         // 有两种来源： i前面字符都不构成单词，dp[i]=dp[i-1] + 1
         //            i前面有单词在字典中，dp[i] 等于 单词前dp[i-len]
         // 题目要求最少， 取上面两种情况的min
         // ? 如何判断i前面是否有单词在dict中    substring.  注意endIndex不包括当前字符，所以i指向单词下一个字符
-        public int respace(String[] dictionary, String sentence) {
+        public int respace03(String[] dictionary, String sentence) {
             if (dictionary.length == 0 || sentence.length() == 0) {
                 return 0;
             }
