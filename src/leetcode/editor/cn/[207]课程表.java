@@ -40,7 +40,7 @@ class LC207{
     public static void main(String[] args) {
         Solution solution = new LC207().new Solution();
         // TO TEST
-        System.out.println(solution.canFinish(2, new int[][]{{1,0}, {0,1}}));
+        System.out.println(solution.canFinish(2, new int[][]{}));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -54,6 +54,7 @@ class LC207{
             }
             // 每门课的入度
             int[] degree = new int[numCourses];
+<<<<<<< Updated upstream
             // for (int i = 0; i < numCourses; i++) {
             //     degree[prerequisites[i][0]] ++;
             //     graph[prerequisites[i][0]].add(prerequisites[i][1]);
@@ -61,6 +62,11 @@ class LC207{
             for (int[] prerequisite : prerequisites) {
                 degree[prerequisite[0]] ++;
                 graph[prerequisite[1]].add(prerequisite[0]);
+=======
+            for (int i = 0; i < prerequisites.length; i++) {
+                degree[prerequisites[i][0]]++;
+                graph[prerequisites[i][1]].add(prerequisites[i][0]);
+>>>>>>> Stashed changes
             }
             // 入度为0的课入队列
             Queue<Integer> queue = new LinkedList<>();
@@ -70,12 +76,24 @@ class LC207{
                 }
             }
             numCourses -= queue.size();
+<<<<<<< Updated upstream
             // 将队列中入度为0的课摘除，同时将关联课的入度减1
             while (!queue.isEmpty()){
                 int n = queue.poll();
                 for (int i = 0; i < graph[n].size(); i++) {
                     if (-- degree[(int)graph[n].get(i)] == 0) {
                         queue.offer((int)graph[n].get(i));
+=======
+            // 摘除入度为0的点，因为不需要前置课程，同时关联的点入度减1
+            while (!queue.isEmpty()) {
+                int n = queue.poll();
+                for (int i = 0; i < graph[n].size(); i++) {
+                    int index = (Integer) graph[n].get(i);
+                    degree[index] -= 1;
+                    if (degree[index] == 0) {
+                        queue.offer(index);
+                        numCourses -= 1;
+>>>>>>> Stashed changes
                     }
                 }
             }
