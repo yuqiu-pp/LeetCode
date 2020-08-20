@@ -27,23 +27,39 @@ class LC93{
     class Solution {
         List<String> res = new ArrayList<>();
 
-        // public List<String> restoreIpAddresses(String s) {
-        //     if (s.length() < 4) {
-        //         return new ArrayList<>();
-        //     }
-        //     char[] chars = s.toCharArray();
-        //     helper(chars, 0, 4, new StringBuilder());
-        // }
-        // start 剩余字符数据起始位置
-        // n 剩余的格子数
-        // sb 当前的ip字符串
-        // private void helper(char[] chars, int start, int n, StringBuilder sb){
-        //     for (int i = start; i < chars.length - start; i++) {
-        //         剩余的长度合法
-            // }
-        // }
-
+        // 4个格子，每个填充1~3位数字
+        // 数字合法性：0~255；但大于1位时，不能以0开头
         public List<String> restoreIpAddresses(String s) {
+            if (s.length() < 4) {
+                return res;
+            }
+            helper(s, 0, 0, "");
+            return res;
+        }
+        private void helper(String s, int start, int count, String curr) {
+            if (count > 4) {
+                return;
+            }
+            if (count == 4 && start == s.length()) {
+                res.add(curr);
+                return;
+            }
+            // 每个格子取1~3位
+            for (int i = 1; i < 4; i++) {
+                if (start + i > s.length()) {
+                    break;
+                }
+                String str = s.substring(start, start + i);
+                if (Integer.parseInt(str) > 255 || (str.length() > 1 && str.startsWith("0"))) {
+                    continue;
+                }
+                str += count == 3 ? "" : ".";
+                helper(s, start + i, count + 1, curr + str);
+            }
+        }
+
+
+        public List<String> restoreIpAddresses02(String s) {
             backtrack(s, 0, "", 0);
             return res;
         }

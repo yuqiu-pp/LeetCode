@@ -40,13 +40,47 @@ class LC207{
     public static void main(String[] args) {
         Solution solution = new LC207().new Solution();
         // TO TEST
-        System.out.println(solution.canFinish(2, new int[][]{}));
+        System.out.println(solution.canFinish(3, new int[][]{{1, 0}, {2, 0}, {2, 1}}));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-
         public boolean canFinish(int numCourses, int[][] prerequisites) {
+            // 有向图
+            ArrayList graph[] = new ArrayList[numCourses];
+            for (int i = 0; i < numCourses; i++) {
+                graph[i] = new ArrayList<Integer>();
+            }
+            // 入度表
+            int indegree[] = new int[numCourses];
+            // 初始化表
+            for (int[] prerequisite : prerequisites) {
+                indegree[prerequisite[0]] ++;
+                graph[prerequisite[1]].add(prerequisite[0]);
+            }
+            // 摘除入度为0的课，首先把入度为0的点入队列
+            Queue<Integer> queue = new LinkedList<>();
+            for (int i = 0; i < numCourses; i++) {
+                if (indegree[i] == 0) {
+                    queue.offer(i);
+                }
+            }
+            numCourses -= queue.size();
+
+            while (!queue.isEmpty()) {
+                int course = queue.poll();
+                for (int i = 0; i < graph[course].size(); i++) {
+                    int index = (int)graph[course].get(i);
+                    if (-- indegree[index] == 0) {
+                        queue.offer(index);
+                        numCourses --;
+                    }
+                }
+            }
+            return numCourses == 0;
+        }
+
+        public boolean canFinish02(int numCourses, int[][] prerequisites) {
             // 有向图
             ArrayList[] graph = new ArrayList[numCourses];
             for (int i = 0; i < numCourses; i++) {
@@ -73,10 +107,11 @@ class LC207{
             numCourses -= queue.size();
             // 将队列中入度为0的课摘除，同时将关联课的入度减1
             while (!queue.isEmpty()){
-                int n = queue.poll();
-                for (int i = 0; i < graph[n].size(); i++) {
-                    if (-- degree[(int)graph[n].get(i)] == 0) {
-                        queue.offer((int)graph[n].get(i));
+                int course = queue.poll();
+                for (int i = 0; i < graph[course].size(); i++) {
+                    int index = (int)graph[course].get(i);
+                    if (-- degree[index] == 0) {
+                        queue.offer(index);
                     }
                 }
             }

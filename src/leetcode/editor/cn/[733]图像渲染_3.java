@@ -52,9 +52,28 @@ class LC733{
     class Solution {
         int[] dx = {1, 0, 0, -1};
         int[] dy = {0, 1, -1, 0};
+        // DFS
+        public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
+            if (image[sr][sc] == newColor) {
+                return image;
+            }
+            dfss(image, sr, sc, image[sr][sc], newColor);
+            return image;
+        }
+        private void dfss(int[][] image, int x, int y, int color, int newColor) {
+            if (x < 0 || x >= image.length || y < 0 || y >= image.length || image[x][y] != color) {
+                return;
+            }
+            image[x][y] = newColor;
+            for (int i = 0; i < 4; i++) {
+                dfss(image, x + dx[i], y + dy[i], color, newColor);
+            }
+        }
+
+
 
         // 广度优先
-        public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
+        public int[][] floodFill03(int[][] image, int sr, int sc, int newColor) {
             if (image[sr][sc] == newColor) {
                 return image;
             }
