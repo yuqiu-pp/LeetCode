@@ -19,15 +19,34 @@ class LC415{
     public static void main(String[] args) {
         Solution solution = new LC415().new Solution();
         // TO TEST
-        System.out.println(solution.addStrings("12", "197"));
+        System.out.println(solution.addStrings02("12", "197"));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+
+        public String addStrings(String num1, String num2) {
+            int m = num1.length() - 1;
+            int n = num2.length() - 1;
+            int carry = 0;
+            StringBuilder sb = new StringBuilder();
+            while (m >= 0 || n >= 0 || carry > 0) {
+                int a = m >= 0 ? num1.charAt(m) - '0' : 0;
+                int b = n >= 0 ? num2.charAt(n) - '0' : 0;
+                // sb.append((a + b + carry) % 10);  // 需要.reverse().
+                sb.insert(0, (a + b + carry) % 10);
+                carry = (a + b + carry) / 10;
+                m --;
+                n --;
+            }
+            return sb.toString();
+        }
+
+
         // 栈存储每位的计算结果
         // 两个指针从字符串尾部开始遍历
         // [i] = ch1 + ch2 + 进位
-        public String addStrings(String num1, String num2) {
+        public String addStrings02(String num1, String num2) {
             int m = num1.length() - 1;
             int n = num2.length() - 1;
             // 进位
@@ -42,6 +61,8 @@ class LC415{
                 int sum = a + b + carry;
                 sb.insert(0, sum % 10);
                 carry = sum / 10;
+                m --;
+                n --;
             }
             return sb.toString();
         }

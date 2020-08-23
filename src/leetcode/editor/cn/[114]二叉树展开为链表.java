@@ -56,8 +56,8 @@ class LC114{
  */
 class Solution {
     // 如果能按 6 5 4 3 2 1 顺序遍历，每遍历一个节点就将当前节点的右指针更新为上一个节点
-    // 后序遍历  root.right / root.left / root
-    // 原地算法
+    // 后序遍历  root.right / root.left / root，然后重新拼接成链表
+    // 原地算法  root.right=root.left / root.right=root.left
     public void flatten(TreeNode root) {
 
     }
