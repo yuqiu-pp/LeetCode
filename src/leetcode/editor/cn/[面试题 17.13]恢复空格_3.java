@@ -41,35 +41,31 @@ class LC1713{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        // dp[i] 当前字符位置，不合法字符数量
-        // 方程  有两种情况：dp[i] = dp[i-1] + 1, 没有合法单词(包含当前字符)
-        //                 dp[i] = dp[i-1] + 1 - word.len, 判断单词的方法 0->i依次减少一个字符，查看是否在dict中
-        // 取其中的最小值
+        // dp[i] 当前字符时的未识别字符数
+        // dp[i+1]  两种路径：
+        //          加上当前字符，仍是未识别字符时， dp[i]=dp[i-1]+1
+        //                      有识别的单词时，dp[i]=dp[i-已识别字符长度]. 长度计算通过substring，从0开始依次判断
         public int respace(String[] dictionary, String sentence){
-            if (sentence.length() == 0) {
-                return 0;
+            HashSet<String> dic = new HashSet<>();
+            for (String s : dictionary) {
+                dic.add(s);
             }
-            HashSet<String> dict = new HashSet<>();
-            for (int i = 0; i < dictionary.length; i++) {
-                dict.add(dictionary[i]);
-            }
-
-            int dp[] = new int[sentence.length()];
-            dp[0] = 1;
-
-            for (int i = 1; i < sentence.length(); i++) {
-                dp[i] = dp[i - 1] + 1;
-                for (int j = 0; j <= i; j++) {
-                    String word = sentence.substring(j, i + 1);
-                    if (dict.contains(word)) {
-                        dp[i] = Math.min(dp[i], dp[j - 1]);
+            int dp[] = new int[sentence.length()+1];
+            // dp[0] 如果看做是第0个字符，则初始值不好设置
+            // 所以字符串第一个字符用i=1标识
+            dp[0] = 0;
+            for (int i = 1; i <= sentence.length(); i++) {
+                dp[i] = dp[i-1] + 1;
+                for (int j = 1; j <= i; j++) {
+                    // 取子串从0开始，所以j-1，但i不需要加1了
+                    if (dic.contains(sentence.substring(j-1, i))) {
+                        // dp[i] = dp[j - 1];   j-1可能小于0
+                        dp[i] = Math.min(dp[i], dp[j-1]);
                     }
                 }
-
             }
-            return dp[sentence.length() - 1];
+            return dp[sentence.length()];
         }
-
 
         // dp[i] 当前字符i前，有多少个不构成单词的字母。  注意，不包含当前字符i
         // 有两种来源： i前面字符都不构成单词，dp[i]=dp[i-1] + 1
