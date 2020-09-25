@@ -44,12 +44,65 @@ class LC51{
     public static void main(String[] args) {
         Solution solution = new LC51().new Solution();
         // TO TEST
-        System.out.println(solution.solveNQueens(4));
+        System.out.println(solution.solveNQueens01(4));
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         List<List<String>> res = new ArrayList<>();
+
+        public List<List<String>> solveNQueens01(int n) {
+            char[][] board = new char[n][n];
+            for (int i = 0; i < board.length; i++) {
+                for (int j = 0; j < board.length; j++) {
+                    board[i][j] = '.';
+                }
+            }
+            backtrack01(0, n, board);
+            return res;
+        }
+        private void backtrack01(int row, int n, char[][] board) {
+            if (row >= n) {
+                List<String> list = new ArrayList<>();
+                for (char[] chars : board) {
+                    list.add(String.valueOf(chars));
+                }
+                res.add(list);
+                return;
+            }
+
+            // 当前行的每个列都尝试摆放
+            for (int i = 0; i < n; i++) {
+                board[row][i] = 'Q';
+                if (isValid01(row, i, board)) {
+                    backtrack01(row + 1, n, board);
+                }
+                board[row][i] = '.';
+            }
+        }
+        private boolean isValid01(int row, int col, char[][] board) {
+            // 列上不能有棋
+            for (int i = 0; i < row; i++) {
+                if (board[i][col] == 'Q') {
+                    return false;
+                }
+            }
+            // 左对角线不能有
+            for (int i = row - 1, j = col -1 ; i >= 0 && j >= 0; i--, j--) {
+                if (board[i][j] == 'Q') {
+                    return false;
+                }
+            }
+            // 右对角线不能有
+            for (int i = row - 1, j = col + 1; i >= 0 && j < board.length ; i--, j++) {
+                if (board[i][j] == 'Q') {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
 
         // 放好一层后，进入第二层放
         public List<List<String>> solveNQueens(int n) {
