@@ -36,29 +36,36 @@ class LC146{
     public static void main(String[] args) {
         // Solution solution = new LC146().new Solution();
         // TO TEST
-        // System.out.println(solution.LRU缓存机制());
+        // System.out.println(solution.LRUCache());
     }
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class LRUCache {
         // key, value
-        private Map<Integer, Integer> lru;
-        // key .  不能用List声明变量
-        private LinkedList<Integer> list;
+
         private int capacity;
+        // ?? 哪里有问题 key .  不能用List声明变量
+        // private Map<Integer, Integer> lru = new HashMap<>();
+        // private LinkedList<Integer> list = new LinkedList<>();
+
+        private Map<Integer, Node> lru = new HashMap<>();
+        private DoublyLinkedList list = new DoublyLinkedList();
 
         public LRUCache(int capacity) {
-            lru = new HashMap<>();
-            list = new LinkedList<>();
             this.capacity = capacity;
         }
 
         public int get(int key) {
             if (lru.containsKey(key)) {
                 // 更新位置
-                list.removeLast();
-                list.addFirst(key);
-                return lru.get(key);
+                // list.removeLast();
+                // list.addFirst(key);
+                // return lru.get(key);
+
+                Node n = lru.get(key);
+                list.remove(n);
+                list.pushToFirst(n);
+                return n.val;
             }
             return -1;
         }
@@ -67,17 +74,68 @@ class LC146{
         //                  引入 2.HashMap 解决检索速度问题
         public void put(int key, int value) {
             if (lru.containsKey(key)) {
-                list.removeLast();
-                list.addFirst(key);
-                lru.put(key, value);
+                // list.removeLast();  remove(key) 不一定是last位置
+                // list.addFirst(key);
+                // lru.put(key, value);
+                list.remove(lru.get(key));
             } else {
                 // 需要插入
-                if (capacity == lru.size()) {
-                    lru.remove(list.getLast());
-                    list.removeLast();
+                if (lru.size() >= capacity) {
+                    // lru.remove(list.getLast());
+                    // list.removeLast();
+                    Node node = list.tail;
+                    lru.remove(node.key);
+                    list.remove(node);
                 }
-                lru.put(key, value);
-                list.addFirst(key);
+                // lru.put(key, value);
+                // list.addFirst(key);
+
+                Node node = new Node(key, value);
+                lru.put(key, node);
+                list.pushToFirst(node);
+            }
+        }
+    }
+
+    class Node {
+        int key;
+        int val;
+        Node prev;
+        Node next;
+
+        Node(int k, int v) {key = k; val = v;}
+    }
+
+    class DoublyLinkedList {
+        Node head;
+        Node tail;
+
+        public void pushToFirst(Node n) {
+            n.next = head;
+            n.prev = null;
+            if (head == null) {
+                tail = n;
+            } else {
+                head.prev = n;
+            }
+            head = n;
+        }
+
+        // 通用remove
+        // 维护了尾节点，所以可以直接定位到
+        public void remove(Node n) {
+            if (n == head) {
+                head = head.next;
+            }
+            if (n == tail) {
+                tail = tail.prev;
+                // tail.next = null;  不需要加吗
+            }
+            if (n.next != null) {
+                n.next.prev = n.prev;
+            }
+            if (n.prev != null) {
+                n.prev.next = n.next;
             }
         }
     }

@@ -41,22 +41,35 @@ class PL106{
  * }
  */
 class Solution {
-    // 后序  尾位置是root   将中序分成3份
+    // 后序  尾位置是root   将中序分成3份.  这样递归下去
     // 中序遍历映射hash表，方便检索index
     HashMap<Integer, Integer> map = new HashMap<>();
+    int p = 0;
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
+        int n = postorder.length;
+        if (n == 0) {
+            return null;
+        }
+        if (n == 1) {
+            return new TreeNode(postorder[0]);
+        }
+
         for (int i = 0; i < inorder.length; i++) {
             map.put(inorder[i], i);
         }
+        p = n - 1;
+        return build(inorder, postorder, 0, n-1);
     }
+
     public TreeNode build(int[] inorder, int[]postorder, int start, int end) {
         if (start > end) {
             return null;
         }
-        TreeNode root = new TreeNode(postorder[end]);
-        int i = map.get(postorder[end]);
-        end = end - 1;
+        TreeNode root = new TreeNode(postorder[p]);
+        int i = map.get(postorder[p]);
+        // p 的递归，递归一直是先构建右子树，所以p从右向左依次递减每次都是取最后一把元素
+        p = p - 1;
 
         root.right = build(inorder, postorder, i+1, end);
         root.left = build(inorder, postorder, start, i-1);
@@ -64,18 +77,7 @@ class Solution {
     }
 
 
-    public TreeNode helper(int[] inorder, int instart, int inend, int[] postorder, int pstart, int pend) {
-        TreeNode root = new TreeNode(postorder[pend]);
 
-        root.right = helper(inorder, postorder[pend]+1, inend, postorder, )
-        root.left = helper(inorder, instart, map.get(postorder[pend] - 1, postorder, ))
-
-        for (int i = instart; i < inend; i++) {
-            if (inorder[i] == postorder[pend]) {
-                root.left = helper(inorder, 0, i, postorder, )
-            }
-        }
-    }
 }
 //leetcode submit region end(Prohibit modification and deletion)
 
