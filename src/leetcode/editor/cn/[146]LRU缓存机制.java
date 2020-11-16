@@ -45,6 +45,7 @@ class LC146{
 
         private int capacity;
         // ?? 哪里有问题 key .  不能用List声明变量
+        // 问题：LinkedList 只能从头和尾操作结点，所有不能用
         // private Map<Integer, Integer> lru = new HashMap<>();
         // private LinkedList<Integer> list = new LinkedList<>();
 
@@ -58,7 +59,7 @@ class LC146{
         public int get(int key) {
             if (lru.containsKey(key)) {
                 // 更新位置
-                // list.removeLast();
+                // list.removeLast();  不一定是尾结点
                 // list.addFirst(key);
                 // return lru.get(key);
 
@@ -78,22 +79,22 @@ class LC146{
                 // list.addFirst(key);
                 // lru.put(key, value);
                 list.remove(lru.get(key));
-            } else {
-                // 需要插入
-                if (lru.size() >= capacity) {
-                    // lru.remove(list.getLast());
-                    // list.removeLast();
-                    Node node = list.tail;
-                    lru.remove(node.key);
-                    list.remove(node);
-                }
-                // lru.put(key, value);
-                // list.addFirst(key);
-
-                Node node = new Node(key, value);
-                lru.put(key, node);
-                list.pushToFirst(node);
             }
+            // 需要插入
+            else if (lru.size() >= capacity) {
+                // lru.remove(list.getLast());
+                // list.removeLast();
+                // 删除队尾
+                Node node = list.tail;
+                lru.remove(node.key);
+                list.remove(node);
+            }
+            // lru.put(key, value);
+            // list.addFirst(key);
+
+            Node node = new Node(key, value);
+            lru.put(key, node);
+            list.pushToFirst(node);
         }
     }
 
@@ -125,10 +126,10 @@ class LC146{
         // 维护了尾节点，所以可以直接定位到
         public void remove(Node n) {
             if (n == head) {
-                head = head.next;
+                head = n.next;
             }
             if (n == tail) {
-                tail = tail.prev;
+                tail = n.prev;
                 // tail.next = null;  不需要加吗
             }
             if (n.next != null) {
