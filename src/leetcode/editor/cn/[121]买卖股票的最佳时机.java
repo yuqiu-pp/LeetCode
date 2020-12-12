@@ -34,11 +34,35 @@ class PL121{
     
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        // dp[i] 第i天最大利润
-        // dp[i] 如果前一天没买股票 = -dp[i-1]
-        //
+        // 只进行一次交易
+        // 找两天之间的最大差额就是最大利润
+
+        // 遍历 记录最大和最小值，但要求有先后顺序
+        // 通过先判断最大值，再判断最小值
         public int maxProfit(int[] prices) {
-            k
+            if (prices.length < 1) {
+                return 0;
+            }
+            int min = prices[0];
+            int profit = 0;
+            for (int i = 1; i < prices.length; i++) {
+                // 每天价格与最低价的差额，即最大利润
+                profit = Math.max(prices[i] - min, profit);
+                min = Math.min(prices[i], min);
+            }
+            return profit;
+        }
+
+        // 暴力 找任何一对ij的组合
+        public int maxProfit01(int[] prices) {
+            int n = prices.length;
+            int max = 0;
+            for (int i = 0; i < n - 1; i++) {
+                for (int j = i + 1; j < n; j++) {
+                    max = Math.max(max, prices[j] - prices[i]);
+                }
+            }
+            return max;
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
